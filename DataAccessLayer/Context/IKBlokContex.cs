@@ -1,11 +1,16 @@
-﻿using System;
+﻿#define salihveritabani
+#undef iremveritabani
+
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using DataAccess.Context;
 using EFLayer.Class;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Context;
+
 
 
 
@@ -28,7 +33,11 @@ public partial class IKBlokContex : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
+#if (salihveritabani && !iremveritabani)
+        optionsBuilder.UseSqlServer("Data Source=SALIH\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
+#elif (iremveritabani && !salihveritabani)
         optionsBuilder.UseSqlServer("Data Source=LAPTOP-CHVDTKO4\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
+#endif
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
