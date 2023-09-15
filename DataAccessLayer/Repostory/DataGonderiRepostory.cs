@@ -26,9 +26,9 @@ namespace DataAccessLayer.Repostory
         }
 
 	
-		public void remove(int id)
+		public void remove(Gonderiler gonderiler)
         {
-            IKBlokContex.Remove(id);
+            IKBlokContex.Remove(gonderiler);
             IKBlokContex.SaveChanges(); 
         }
 

@@ -10,7 +10,7 @@ namespace DataAccessLayer.Interface
     public interface IGonderiData<Gonderi>
     {
         void add(Gonderiler gonderiler);
-        void remove(int id);
+        void remove(Gonderiler gonderiler);
         void update(Gonderiler gonderiler);
         List<Gonderiler> getAllList();
 	

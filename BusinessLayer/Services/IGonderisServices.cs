@@ -10,7 +10,7 @@ namespace BusinessLayer.Services
    public interface IGonderisServices<Gonderi>
     {
         void add(Gonderiler gonderiler);
-        void remove(int id);
+        void remove(Gonderiler gonderiler);
         void update(Gonderiler gonderiler);
         List<Gonderi> getAllList();
 		
