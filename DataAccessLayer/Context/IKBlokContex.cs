@@ -1,4 +1,11 @@
+<<<<<<< Updated upstream
 ﻿using System;
+=======
+﻿#undef salihveritabani
+#define iremveritabani
+
+using System;
+>>>>>>> Stashed changes
 using System.Collections.Generic;
 using DataAccess.Context;
 using EFLayer.Class;
