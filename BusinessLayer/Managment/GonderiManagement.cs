@@ -28,9 +28,9 @@ namespace BusinessLayer.Managment
         }
 
 	
-		public void remove(int id)
+		public void remove(Gonderiler gonderiler)
         {
-            GonderiRepo.remove(id);
+            GonderiRepo.remove(gonderiler);
         }
 
         public void update(Gonderiler gonderiler)

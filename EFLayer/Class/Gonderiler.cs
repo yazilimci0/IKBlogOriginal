@@ -12,6 +12,10 @@ namespace EFLayer.Class
         [Key]
         public int GonderiId { get; set; }
         public string? GonderiName { get; set; }
+        public string? GonderiBaslik { get; set; }
+        public string? GonderiIcerik { get; set; }
+        public string? GonderiResim { get; set; }
+
         public int? kategoriId { get; set; }
         public Kategories? Kategories { get; set; }
     }

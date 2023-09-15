@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    [Yetki]
+    //[Yetki]
     public class AdminGonderilerController : Controller
     {
 
@@ -86,7 +86,7 @@ namespace IKBlok.Controllers
             if (ModelState.IsValid)
             {
                 gn.add(gonderiler);
-                var asdf = 4;
+   
                 return RedirectToAction(nameof(Index));
 
             }
@@ -115,7 +115,7 @@ namespace IKBlok.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GonderiId,GonderiName,kategoriId")] Gonderiler gonderiler)
+        public async Task<IActionResult> Edit(int id, [Bind("GonderiId,GonderiName,GonderiBaslik,GonderiIcerik,GonderiResim,kategoriId")] Gonderiler gonderiler)
         {
             if (ModelState.IsValid)
             {
@@ -157,58 +157,59 @@ namespace IKBlok.Controllers
         }
 
         // GET: AdminGonderiler/Delete/5
-        public async Task<IActionResult> Delete(int id, Gonderiler gonderiler)
+        public async Task<IActionResult> Delete(int id,Gonderiler gonderiler)
         {
 
-            if (ModelState.IsValid)
-            {
-                gn.remove(id);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(gonderiler);
-            //if (id == null || _context.Gonderis == null)
-            //{
-            //	return NotFound();
-            //}
+			if (ModelState.IsValid)
+			{
+				gn.remove(gonderiler);
+				return RedirectToAction(nameof(Index));
+			}
+			return View(gonderiler);
+			//if (id == null || _context.Gonderis == null)
+			//{
+			//	return NotFound();
+			//}
 
-            //var gonderiler = await _context.Gonderis
-            //	.Include(g => g.Kategories)
-            //	.FirstOrDefaultAsync(m => m.GonderiId == id);
-            //if (gonderiler == null)
-            //{
-            //	return NotFound();
-            //}
+			//var gonderiler = await _context.Gonderis
+			//	.Include(g => g.Kategories)
+			//	.FirstOrDefaultAsync(m => m.GonderiId == id);
+			//if (gonderiler == null)
+			//{
+			//	return NotFound();
+			//}
 
-            return View();
+			return View();
         }
 
         // POST: AdminGonderiler/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id, Gonderiler gonderiler)
+        public async Task<IActionResult> DeleteConfirmed(int id,Gonderiler gonderiler)
         {
 
-            if (ModelState.IsValid)
-            {
-                gn.remove(id);
-                return RedirectToAction(nameof(Index));
-            }
-            return View(gonderiler);
 
-            //if (_context.Gonderis == null)
-            //{
-            //    return Problem("Entity set 'IKBlokContex.Gonderis'  is null.");
-            //}
-            //var gonderiler = await _context.Gonderis.FindAsync(id);
-            //if (gonderiler != null)
-            //{
-            //    _context.Gonderis.Remove(gonderiler);
-            //}
+			if (ModelState.IsValid)
+			{
+				gn.remove(gonderiler);
+				return RedirectToAction(nameof(Index));
+			}
+			return View(gonderiler);
 
-            //await _context.SaveChangesAsync();
-            //return RedirectToAction(nameof(Index));
+			//if (_context.Gonderis == null)
+			//{
+			//    return Problem("Entity set 'IKBlokContex.Gonderis'  is null.");
+			//}
+			//var gonderiler = await _context.Gonderis.FindAsync(id);
+			//if (gonderiler != null)
+			//{
+			//    _context.Gonderis.Remove(gonderiler);
+			//}
 
-        }
+			//await _context.SaveChangesAsync();
+			//return RedirectToAction(nameof(Index));
+
+		}
 
     }
 }

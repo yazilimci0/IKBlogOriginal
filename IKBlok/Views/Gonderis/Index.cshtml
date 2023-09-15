@@ -16,6 +16,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.GonderiName)
             </th>
+             <th>
+                @Html.DisplayNameFor(model => model.GonderiBaslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiIcerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiResim)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.kategoriId)
             </th>
@@ -34,6 +43,15 @@
             <td>
                 @Html.DisplayFor(modelItem => item.kategoriId)
             </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GonderiBaslik)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GonderiIcerik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GonderiResim)
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
             </td>
