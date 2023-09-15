@@ -1,0 +1,146 @@
+﻿@model IEnumerable<EFLayer.Class.Gonderiler>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Gönderi Bilgileri</h3>
+					</div>
+
+					<div class="card-body">
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Gönderi Adı</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>
+											@Html.DisplayFor(modelItem => item.GonderiName)
+										</td>
+										<td>
+											<a asp-action="Edit" asp-route-id="@item.GonderiId">Edit</a>
+											<a asp-action="Details" asp-route-id="@item.GonderiId">Details</a>
+											<a asp-action="Delete" asp-route-id="@item.GonderiId">Delete</a>
+										</td>
+									</tr>
+								}
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+<script>
+	$(function () {
+		$("#example1").DataTable({
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+			"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"responsive": true,
+		});
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* <h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kategoriId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategories)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GonderiName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategoriId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GonderiId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GonderiId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GonderiId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ *@

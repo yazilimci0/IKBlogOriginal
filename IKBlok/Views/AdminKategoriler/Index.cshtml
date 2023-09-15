@@ -1,0 +1,169 @@
+﻿@model IEnumerable<EFLayer.Class.Kategories>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<section class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+
+
+				<div class="card">
+					<div class="card-header">
+						<h3 class="card-title">Kategori Bilgileri</h3>
+					</div>
+
+					<div class="card-body">
+						<table id="example1" class="table table-bordered table-striped">
+							<thead>
+								<tr>
+									<th>Kategori Adı</th>
+
+								</tr>
+							</thead>
+							<tbody>
+
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>
+											@Html.DisplayFor(modelItem => item.kategoryName)
+										</td>
+										<td>
+											<a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a>
+											<a asp-action="Details" asp-route-id="@item.kategoriId">Details</a>
+											<a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
+										</td>
+									</tr>
+								}
+
+								@*  <tr>
+								<td>Trident</td>
+								</tr> *@
+
+						</table>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section>
+
+
+
+
+
+
+
+@* <div class="card">
+    <div class="card-header">
+        <h3 class="card-title">DataTable with default features</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+
+                    @Html.DisplayNameFor(model => model.kategoryName)
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.kategoryName)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.kategoriId">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Rendering engine</th>
+                    <th>Browser</th>
+                    <th>Platform(s)</th>
+                    <th>Engine version</th>
+                    <th>CSS grade</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+ *@
+
+
+
+<script>
+	$(function () {
+		$("#example1").DataTable({
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+			"buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"responsive": true,
+		});
+	});
+</script>
+
+@*
+
+
+
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.kategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategoryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.kategoriId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+ *@

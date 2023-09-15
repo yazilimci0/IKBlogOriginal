@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EFLayer.Class.Hakkimda>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.baslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.icerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resimLinki)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.baslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.icerik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.resimLinki)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.hakkimdaId">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.hakkimdaId">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.hakkimdaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
