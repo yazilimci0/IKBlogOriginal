@@ -11,7 +11,7 @@ namespace IKBlok.Controllers
 		[Yetki]
         public IActionResult Index()
 		{
-			// sa . as
+			
 			return View();
         }
 		public IActionResult Create()
