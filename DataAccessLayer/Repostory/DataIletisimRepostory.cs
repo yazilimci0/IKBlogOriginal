@@ -25,10 +25,12 @@ namespace DataAccessLayer.Repostory
 
         }
 
+
 		public Iletisim getCategoryById(int id)
 		{
 			return IKBlokContex.Iletisims.Find(id);
 		}
+
 
 		public void remove(int id)
         {

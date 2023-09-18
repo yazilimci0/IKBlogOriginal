@@ -13,7 +13,7 @@ namespace DataAccessLayer.Interface
         void remove(Gonderiler gonderiler);
         void update(Gonderiler gonderiler);
         List<Gonderiler> getAllList();
-	
+		Gonderi getCategoryById(int id);
 
 
 

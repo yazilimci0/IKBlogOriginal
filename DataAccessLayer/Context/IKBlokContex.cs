@@ -3,14 +3,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using DataAccess.Context;
 using EFLayer.Class;
 
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Context;
-
 
 
 
@@ -33,11 +31,7 @@ public partial class IKBlokContex : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-#if (salihveritabani && !iremveritabani)
-        optionsBuilder.UseSqlServer("Data Source=SALIH\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
-#elif (iremveritabani && !salihveritabani)
         optionsBuilder.UseSqlServer("Data Source=LAPTOP-CHVDTKO4\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
-#endif
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -48,14 +42,16 @@ public partial class IKBlokContex : DbContext
 
             entity.Property(e => e.GonderiId);
             entity.Property(e => e.GonderiName);
+			entity.Property(e => e.GonderiBaslik);
+			entity.Property(e => e.GonderiIcerik);
+			entity.Property(e => e.GonderiResim);
 
-
-            entity.HasOne(e => e.Kategories)
+			entity.HasOne(e => e.Kategories)
             .WithMany(e => e.Gonderiler)
             .HasForeignKey(e => e.kategoriId);
 
         });
-
+        
 
 
         modelBuilder.Entity<User>(entity =>

@@ -18,14 +18,28 @@ namespace DataAccessLayer.Repostory
             IKBlokContex.SaveChanges();
         }
 
-        public List<Gonderiler> getAllList()
-        {
-            var list = IKBlokContex.Set<Gonderiler>()
-                 .ToList();
-            return list;
-        }
 
-	
+
+        //public List<Gonderiler> getAllList()
+        //{
+        //    var list = IKBlokContex.Set<Gonderiler>()
+        //         .ToList();
+        //    return list;
+        //}
+
+		public List<Gonderiler> getAllList()
+		{
+			return IKBlokContex.Set<Gonderiler>()
+			   .ToList();
+
+		}
+
+
+		public Gonderiler getCategoryById(int id)
+		{
+			return IKBlokContex.Gonderis.Find(id);
+		}
+
 		public void remove(Gonderiler gonderiler)
         {
             IKBlokContex.Remove(gonderiler);

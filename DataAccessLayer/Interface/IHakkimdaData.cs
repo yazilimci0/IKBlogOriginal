@@ -15,5 +15,6 @@ namespace DataAccessLayer.Interface
         List<Hakkimda> getAllList();
 		Hakkimda getCategoryById(int id);
 
+
 	}
 }

@@ -29,7 +29,7 @@ namespace IKBlok.Controllers
 			return View();
 		}
 
-		
+
 
 		// GET: AdminIletisim/Details/5
 		//public async Task<IActionResult> Details(int? id)
@@ -66,14 +66,14 @@ namespace IKBlok.Controllers
 			return View(iletisim);
 		}
 
-			// GET: AdminIletisim/Edit/5
+		// GET: AdminIletisim/Edit/5
 
 
-			public async Task<IActionResult> Edit(int id)
-		    {
+		public async Task<IActionResult> Edit(int id)
+		{
 
-			    return View(il.getCategoryById(id));
-		    }
+			return View(il.getCategoryById(id));
+		}
 
 
 
@@ -107,37 +107,37 @@ namespace IKBlok.Controllers
 				return RedirectToAction(nameof(Index));
 			}
 			return View(iletisim);
-	     }
+		}
 
 
 
-			////if (id != iletisim.IletisimId)
-			////{
-			////	return NotFound();
-			////}
+		////if (id != iletisim.IletisimId)
+		////{
+		////	return NotFound();
+		////}
 
-			////if (ModelState.IsValid)
-			////{
-			////	try
-			////	{
-			////		_context.Update(iletisim);
-			////		await _context.SaveChangesAsync();
-			////	}
-			////	catch (DbUpdateConcurrencyException)
-			////	{
-			////		if (!IletisimExists(iletisim.IletisimId))
-			////		{
-			////			return NotFound();
-			////		}
-			////		else
-			////		{
-			////			throw;
-			////		}
-			////	}
-			////	return RedirectToAction(nameof(Index));
-			//}
-			
-	
+		////if (ModelState.IsValid)
+		////{
+		////	try
+		////	{
+		////		_context.Update(iletisim);
+		////		await _context.SaveChangesAsync();
+		////	}
+		////	catch (DbUpdateConcurrencyException)
+		////	{
+		////		if (!IletisimExists(iletisim.IletisimId))
+		////		{
+		////			return NotFound();
+		////		}
+		////		else
+		////		{
+		////			throw;
+		////		}
+		////	}
+		////	return RedirectToAction(nameof(Index));
+		//}
+
+
 
 		// GET: AdminIletisim/Delete/5
 		public async Task<IActionResult> Delete(int? id)
@@ -177,6 +177,112 @@ namespace IKBlok.Controllers
 			return View();
 		}
 
-	
+
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc.Rendering;
+//using Microsoft.EntityFrameworkCore;
+//using DataAccess.Context;
+//using EFLayer.Class;
+//using BusinessLayer.Managment;
+//using DataAccessLayer.EntittyFramework;
+
+//namespace IKBlok.Controllers
+//{
+
+//	public class AdminIletisimController : Controller
+//	{
+
+//		IletisimManagment il = new IletisimManagment(new EfIletisimRepo());
+//		// GET: AdminIletisim
+//		public async Task<IActionResult> Index()
+//		{
+//			return View(il.getAllList());
+//		}
+
+//		public IActionResult Create()
+//		{
+//			return View();
+//		}
+
+	
+//		[HttpPost]
+//		[ValidateAntiForgeryToken]
+//		public async Task<IActionResult> Create([Bind("IletisimId,Mail,Telefon,Adres")] Iletisim iletisim)
+//		{
+//			if (ModelState.IsValid)
+//			{
+//				il.add(iletisim);
+//				return RedirectToAction(nameof(Index));
+//			}
+//			return View(iletisim);
+//		}
+
+//			// GET: AdminIletisim/Edit/5
+
+
+//			public async Task<IActionResult> Edit(int id)
+//		    {
+
+//			return View();
+//		    }
+
+		
+//		[HttpPost]
+//		[ValidateAntiForgeryToken]
+//		public async Task<IActionResult> Edit(int id, [Bind("IletisimId,Mail,Telefon,Adres")] Iletisim iletisim)
+//		{
+
+//			if (ModelState.IsValid)
+//			{
+//				il.update(iletisim);
+//				return RedirectToAction(nameof(Index));
+//			}
+//			return View(iletisim);
+//	     }
+
+
+		// GET: AdminIletisim/Delete/5
+		//public async Task<IActionResult> Delete(int? id)
+		//{
+			
+		//	return View();
+		//}
+
+		// POST: AdminIletisim/Delete/5
+		//[HttpPost, ActionName("Delete")]
+		//[ValidateAntiForgeryToken]
+		//public async Task<IActionResult> DeleteConfirmed(int id)
+		//{
+		
+		//	return View();
+		//}
+
+	
+//	}
+//}
