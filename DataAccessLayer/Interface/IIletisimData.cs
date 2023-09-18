@@ -15,5 +15,7 @@ namespace DataAccessLayer.Interface
         void update (Iletisim iletisim); 
         List <Iletisim> getAllList();
 		Iletisim getCategoryById(int id);
+
+
 	}
 }

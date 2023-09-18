@@ -46,12 +46,7 @@ namespace IKBlok.Controllers
             return View(kategories);
         }
 
-		//GET: AdminKategoriler/Edit/5
-		//public async Task<IActionResult> Edit(int id)
-		//{
-
-		//    return View(kt.getCategoryById(id));
-		//}
+	
 		public async Task<IActionResult> Edit(int id)
 		{
 
@@ -71,32 +66,6 @@ namespace IKBlok.Controllers
 				return RedirectToAction(nameof(Index));
 			}
 			return View(kategories);
-			//if (id != kategories.kategoriId)
-			//{
-			//    return NotFound();
-			//}
-
-			//if (ModelState.IsValid)
-			//{
-			//    try
-			//    {
-			//        _context.Update(kategories);
-			//        await _context.SaveChangesAsync();
-			//    }
-			//    catch (DbUpdateConcurrencyException)
-			//    {
-			//        if (!KategoriesExists(kategories.kategoriId))
-			//        {
-			//            return NotFound();
-			//        }
-			//        else
-			//        {
-			//            throw;
-			//        }
-			//    }
-			//    return RedirectToAction(nameof(Index));
-			//}
-			//return View(kategories);
 			
 
         }
@@ -105,19 +74,7 @@ namespace IKBlok.Controllers
         public async Task<IActionResult> Delete(int id)
         {
 			return View(kt.getCategoryById(id));
-			//if (id == null || _context.Kategories == null)
-			//{
-			//    return NotFound();
-			//}
-
-			//var kategories = await _context.Kategories
-			//    .FirstOrDefaultAsync(m => m.kategoriId == id);
-			//if (kategories == null)
-			//{
-			//    return NotFound();
-			//}
-
-			//return View(kategories);
+			
 		
 		}
 
@@ -130,19 +87,6 @@ namespace IKBlok.Controllers
 				kt.remove(kategories);
 				return RedirectToAction(nameof(Index));
 			
-
-			//if (_context.Kategories == null)
-			//{
-			//    return Problem("Entity set 'IKBlokContex.Kategories'  is null.");
-			//}
-			//var kategories = await _context.Kategories.FindAsync(id);
-			//if (kategories != null)
-			//{
-			//    _context.Kategories.Remove(kategories);
-			//}
-
-			//await _context.SaveChangesAsync();
-			//return RedirectToAction(nameof(Index));
 			
 		}
 

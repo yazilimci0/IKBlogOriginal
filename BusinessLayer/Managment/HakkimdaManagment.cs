@@ -42,5 +42,7 @@ namespace BusinessLayer.Managment
         {
           hakkimdaRepo.update(hakkimda);
         }
-    }
+
+		
+	}
 }

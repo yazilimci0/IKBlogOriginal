@@ -14,11 +14,11 @@ namespace IKBlok.Controllers
 {
     public class GonderisController : Controller
     {
-		IKBlokContex _context = new IKBlokContex();
-		GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
-		// GET: UIGonderiler
-		
-            public async Task<IActionResult> Index()
+        IKBlokContex _context = new IKBlokContex();
+        GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
+        // GET: UIGonderiler
+
+        public async Task<IActionResult> Index()
         {
             var iKBlokContex = _context.Gonderis.Include(g => g.Kategories);
             return View(await iKBlokContex.ToListAsync());
@@ -153,14 +153,14 @@ namespace IKBlok.Controllers
             {
                 _context.Gonderis.Remove(gonderiler);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool GonderilerExists(int id)
         {
-          return (_context.Gonderis?.Any(e => e.GonderiId == id)).GetValueOrDefault();
+            return (_context.Gonderis?.Any(e => e.GonderiId == id)).GetValueOrDefault();
         }
     }
 }
