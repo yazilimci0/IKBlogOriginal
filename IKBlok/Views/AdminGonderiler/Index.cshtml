@@ -25,6 +25,9 @@
 							<thead>
 								<tr>
 									<th>Gönderi Adı</th>
+									<th>Gönderi Başlığı</th>
+									<th>Gönderi İçeriği</th>
+									<th>Gönderi Resimleri</th>
 
 								</tr>
 							</thead>
@@ -35,6 +38,15 @@
 									<tr>
 										<td>
 											@Html.DisplayFor(modelItem => item.GonderiName)
+										</td>
+										<td>
+											@Html.DisplayFor(modelItem => item.GonderiBaslik)
+										</td>
+										<td>
+											@Html.DisplayFor(modelItem => item.GonderiIcerik)
+										</td>
+										<td>
+											@Html.DisplayFor(modelItem => item.GonderiResim)
 										</td>
 										<td>
 											<a asp-action="Edit" asp-route-id="@item.GonderiId">Edit</a>

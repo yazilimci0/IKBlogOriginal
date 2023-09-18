@@ -89,4 +89,66 @@
     </div>
 </div>
 
+<<<<<<< arayüz
 <!-- end of post-item -->
+=======
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiName)
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.GonderiBaslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiIcerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GonderiResim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kategoriId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kategories)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GonderiName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kategoriId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GonderiBaslik)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GonderiIcerik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GonderiResim)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.GonderiId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.GonderiId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GonderiId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+>>>>>>> main

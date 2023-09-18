@@ -55,7 +55,7 @@ namespace IKBlok.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("GonderiId,GonderiName,kategoryId")] Gonderiler gonderiler)
+        public async Task<IActionResult> Create([Bind("GonderiId,GonderiName,GonderiBaslik,GonderiIcerik,GonderiResim,kategoryId")] Gonderiler gonderiler)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace IKBlok.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("GonderiId,GonderiName,kategoryId")] Gonderiler gonderiler)
+        public async Task<IActionResult> Edit(int id, [Bind("GonderiId,GonderiName,GonderiBaslik,GonderiIcerik,GonderiResim,kategoryId")] Gonderiler gonderiler)
         {
             if (id != gonderiler.GonderiId)
             {
