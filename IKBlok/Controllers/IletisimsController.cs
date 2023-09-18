@@ -20,9 +20,7 @@ namespace IKBlok.Controllers
         // GET: Iletisims
         public async Task<IActionResult> Index()
         {
-              return _context.Iletisims != null ? 
-                          View(await _context.Iletisims.ToListAsync()) :
-                          Problem("Entity set 'IKBlokContex.Iletisims'  is null.");
+              return View(il.getAllList().FirstOrDefault());
         }
 
         // GET: Iletisims/Details/5
