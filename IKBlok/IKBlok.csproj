@@ -7,19 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\UITheme\about.html" />
-    <None Include="wwwroot\UITheme\category.html" />
-    <None Include="wwwroot\UITheme\contact.html" />
-    <None Include="wwwroot\UITheme\images\Van Gogh 1.jpeg" />
-    <None Include="wwwroot\UITheme\images\Van Gogh 2.jpg" />
-    <None Include="wwwroot\UITheme\images\VanGogh3.jpg" />
-    <None Include="wwwroot\UITheme\index-2.html" />
-    <None Include="wwwroot\UITheme\index.html" />
-    <None Include="wwwroot\UITheme\post-details.html" />
-    <None Include="wwwroot\UITheme\privacy.html" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.7.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
