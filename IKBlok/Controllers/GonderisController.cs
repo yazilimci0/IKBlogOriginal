@@ -20,8 +20,7 @@ namespace IKBlok.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var iKBlokContex = _context.Gonderis.Include(g => g.Kategories);
-            return View(await iKBlokContex.ToListAsync());
+            return View(py.getAllList());
         }
 
         // GET: UIGonderiler/Details/5

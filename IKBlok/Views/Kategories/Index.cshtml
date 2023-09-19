@@ -4,25 +4,23 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UILayout.cshtml";
 }
-
- <h1>Index</h1>
-
+<h1>KATEGORİLER</h1>
 @* <p>
     <a asp-action="Create">Create New</a>
 </p> *@
 <table class="table">
-    <thead>
+    @* <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.kategoryName)
             </th>
             <th></th>
         </tr>
-    </thead>
+    </thead> *@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td >
                 @Html.DisplayFor(modelItem => item.kategoryName)
             </td>
             @* <td>

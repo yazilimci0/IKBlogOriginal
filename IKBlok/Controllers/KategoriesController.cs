@@ -24,9 +24,8 @@ namespace IKBlok.Controllers
         // GET: Kategories
         public async Task<IActionResult> Index()
         {
-              return _context.Kategories != null ? 
-                          View(await _context.Kategories.ToListAsync()) :
-                          Problem("Entity set 'IKBlokContex.Kategories'  is null.");
+            return View(kt.getAllList());
+                
         }
 
         // GET: Kategories/Details/5

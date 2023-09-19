@@ -80,3 +80,6 @@ body {
 .text-danger {
     color: red;
 }
+.underline-text {
+    text-decoration: underline;
+}

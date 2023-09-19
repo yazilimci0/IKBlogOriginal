@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    //[Yetki]
+    [Yetki]
     public class AdminGonderilerController : Controller
     {
 

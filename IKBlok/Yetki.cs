@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata;
+using System.Runtime.ConstrainedExecution;
 
 namespace IKBlok
 {
-    public class Yetki: ActionFilterAttribute
+    public class Yetki : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
 
@@ -28,9 +30,32 @@ namespace IKBlok
                 return;
 
             }
-            else if(filterContext.HttpContext.Session.GetInt32("roleid") == 1)
+            else if (filterContext.HttpContext.Session.GetInt32("roleid") == 1)
             {
 
+            }
+            else if (filterContext.HttpContext.Session.GetInt32("roleid") == 0)
+            {
+                var routeValues = new RouteValueDictionary
+                {
+                    { "controller", "Gonderis" },
+                    { "action", "Index" }
+                };
+
+                var routeValues2 = new RouteValueDictionary
+                {
+                    { "controller", "Hakkimdas" },
+                    { "action", "Index" }
+                };
+
+                var redirectToRoutes = new List<RouteValueDictionary> { routeValues, routeValues2};
+                filterContext.Result = new RedirectToRouteResult(redirectToRoutes[0]);
+                 for (int i = 0; i < redirectToRoutes.Count; i++)
+                 {
+                     filterContext.Result = new RedirectToRouteResult(redirectToRoutes[i]);
+                 }
+
+                return;
             }
         }
     }
