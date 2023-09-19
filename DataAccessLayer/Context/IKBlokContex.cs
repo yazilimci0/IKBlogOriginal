@@ -32,6 +32,7 @@ public partial class IKBlokContex : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Data Source=LAPTOP-CHVDTKO4\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
+
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -59,8 +60,13 @@ public partial class IKBlokContex : DbContext
             entity.ToTable("User");
 
             entity.Property(e => e.UserId);
-
-        });
+			entity.Property(e => e.Name);
+			entity.Property(e => e.SurName);
+			entity.Property(e => e.UserAdi);
+		    entity.Property(e => e.Password);
+		    entity.Property(e => e.RoleId);
+	
+});
 
         modelBuilder.Entity<Kategories>(entity =>
         {

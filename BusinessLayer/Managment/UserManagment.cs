@@ -22,14 +22,21 @@ namespace BusinessLayer.Managment
             UserRepo.add(user); 
         }
 
+       
         public List<User> getAllList()
         {
             return UserRepo.getAllList();
         }
 
-        public void remove(int id)
+		public User getCategoryById(int id)
+		{
+			return UserRepo.getCategoryById(id);
+
+		}
+
+		public void remove(User user)
         {
-            UserRepo.remove(id);
+            UserRepo.remove(user);
         }
 
         public void update(User user)

@@ -24,9 +24,14 @@ namespace DataAccessLayer.Repostory
                  .ToList();
         }
 
-        public void remove(int id)
+		public User getCategoryById(int id)
+		{
+			return IKBlokContex.User.Find(id);
+		}
+
+		public void remove(User user)
         {
-            IKBlokContex.Remove(id);
+            IKBlokContex.Remove(user);
             IKBlokContex.SaveChanges();
         }
 
