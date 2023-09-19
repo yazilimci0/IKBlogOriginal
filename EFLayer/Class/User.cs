@@ -11,8 +11,8 @@ namespace EFLayer.Class
     {
         [Key]
         public int UserId { get; set; }
-        public String? SurName { get; set; }
-        public string? Name { get; set; }
+		public string? Name { get; set; }
+		public String? SurName { get; set; }
         public string? UserAdi { get; set; }
         public string? Password { get; set; }
         public int RoleId { get; set; }

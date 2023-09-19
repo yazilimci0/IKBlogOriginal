@@ -1,52 +1,95 @@
 ﻿@model EFLayer.Class.Gonderiler
 
 @{
-    ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	ViewData["Title"] = "Edit";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<script src="~/ckeditor.js"></script>
+<script src="~/ckeditor/build-config.js"></script>
+<script src="~/ckeditor/config.js"></script>
+<link href="~/ckeditor/contents.css" rel="stylesheet" />
+<script src="~/ckeditor/styles.js"></script>
 
-<h4>Gonderiler</h4>
+@* <script src="~/ckeditor/ckeditor.js"></script> *@
+
+
+<h5>Gönderileri Düzenle</h5>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="GonderiId" />
-            <div class="form-group">
-                <label asp-for="GonderiName" class="control-label"></label>
-                <input asp-for="GonderiName" class="form-control" />
-                <span asp-validation-for="GonderiName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GonderiBaslik" class="control-label"></label>
-                <input asp-for="GonderiBaslik" class="form-control" />
-                <span asp-validation-for="GonderiBaslik" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GonderiIcerik" class="control-label"></label>
-                <input asp-for="GonderiIcerik" class="form-control" />
-                <span asp-validation-for="GonderiIcerik" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GonderiResim" class="control-label"></label>
-                <input asp-for="GonderiResim" class="form-control" />
-                <span asp-validation-for="GonderiResim" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="kategoriId" class="control-label"></label>
-                <input asp-for="kategoriId" class="form-control" />
-                <span asp-validation-for="kategoriId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+	<div class="col-md-12">
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="GonderiId" />
+			<div class="form-group">
+				<label asp-for="GonderiName" class="control-label"></label>
+				<input asp-for="GonderiName" class="form-control" />
+				<span asp-validation-for="GonderiName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="GonderiBaslik" class="control-label"></label>
+				<input asp-for="GonderiBaslik" class="form-control" />
+				<span asp-validation-for="GonderiBaslik" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="GonderiResim" class="control-label"></label>
+				<input asp-for="GonderiResim" class="form-control" />
+				<span asp-validation-for="GonderiResim" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+
+				<label asp-for="kategoriId" class="control-label"></label>
+				@*  <select asp-for="kategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select> *@
+
+				@Html.DropDownList("kategoriId",null,new {@class="form-control"} )
+				<span asp-validation-for="kategoriId" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+
+				<div class="card card-outline card-info">
+					<div class="card-header">
+						<h3 class="card-title">
+							Gönderi İçeriği
+						</h3>
+					</div>
+					<div class="card-body">
+						<textarea name="GonderiIcerik" id="editor1" rows="10" cols="80">
+				This is my textarea to be replaced with CKEditor 4.
+			</textarea>
+						<script>
+							// Replace the <textarea id="editor1"> with a CKEditor 4
+							// instance, using default configuration.
+							CKEDITOR.replace('editor1');
+						</script>
+						</
+				@*  <textarea id="editor" name="GonderiIcerik" rows="5"> </textarea> *@
+
+						@* <textarea id="summernote" style="display: none;">Place &lt;em&gt;some&lt;/em&gt; &lt;u&gt;text&lt;/u&gt; &lt;strong&gt;here&lt;/strong&gt;</textarea> *@
+
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+		</form>
+	</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+	<a asp-action="Index">Back to List</a>
 </div>
-
+<script>
+	// Replace the <textarea id="editor1"> with a CKEditor 4
+	// instance, using default configuration.
+	CKEDITOR.replace('editor1');
+</script>
+@* <script>
+	ClassicEditor
+		.create(document.querySelector('#editor1'))
+		.catch(error => {
+			console.error(error);
+		});
+</script>
+ *@

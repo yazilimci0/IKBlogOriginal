@@ -30,14 +30,16 @@ namespace IKBlok.Controllers
 
 		public async Task<IActionResult> Edit(int id)
 		{
+            ViewData["kategoriId"] = new SelectList(kt.getAllList(), "kategoriId", "kategoryName");
+            return View(gn.getCategoryById(id));
 
-			return View(gn.getCategoryById(id));
-		}
 
-		//public async Task<IActionResult> Edit(int? id)
-  //      {
-  //          return View();
-  //      }
+        }
+
+        //public async Task<IActionResult> Edit(int? id)
+        //      {
+        //          return View();
+        //      }
 
         // GET: AdminGonderiler/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -117,9 +119,6 @@ namespace IKBlok.Controllers
             gn.remove(gonderiler);
             return RedirectToAction(nameof(Index));
         }
-
-
-
 
 
     }
