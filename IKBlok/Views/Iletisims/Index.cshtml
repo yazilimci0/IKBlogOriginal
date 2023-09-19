@@ -4,27 +4,31 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UILayout.cshtml";
 }
-<div class="card post-item bg-transparent border-0 mb-5">
-    <div class="row">
-        <div class="col-md-12">
-            @Html.Label("Adres","Adres")
-            <div class="form-group">
-                @Html.TextArea("Açıklama",null, new {@style = "color:white; background-color:transparent"})
-                <p class="invalid-feedback">Your first-name is required!</p>
+<div>
+    <div class="col-md-15">
+        <div class="contact-form bg-dark">
+            <h1 class="text-white add-letter-space mb-5">İletişim Adresi</h1>
+            <div class="col-md-12">
+                <label for="message" class="text-black-300">Adres</label>
+                <div class="form-group mb-5">
+                    
+                    @Html.TextAreaFor(model => model.Adres, new { cols = 35, @rows = 3, @readonly = "readonly" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-5">
+                    <label for="message" class="text-black-300">Telefon</label>
+                    <input type="text" id="telefon" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0"value="@Model.Telefon" readonly>
+                    
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-5">
+                    <label for="message" class="text-black-300">email</label>
+                    <input type="email" id="email" class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0" value="@Model.Mail" readonly>
+                    
+                </div>
             </div>
         </div>
-        <div class="col-md-12">
-            <div class="form-group mb-3">
-                @Html.Label("Mail","Mail:")
-                <input type="text" id="firstName" class="btn" placeholder="info@gmail.com" required="" readonly>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <div class="form-group mb-3">
-                @Html.Label("Telefon","Telefon:")
-                <input type="text" id="firstName" class="btn" placeholder="0555 000 55 55" required="" readonly>
-                @* form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0 *@
-            </div>
-        </div>
-        </div>
+    </div>
 </div>

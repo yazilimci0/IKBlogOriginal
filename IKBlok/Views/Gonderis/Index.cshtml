@@ -4,7 +4,9 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UILayout.cshtml";
 }
-<div class="card post-item bg-transparent border-0 mb-5">
+@* 
+
+ <div class="card post-item bg-transparent border-0 mb-5">
     <a href="~/UITheme/post-details.html">
         <img class="card-img-top rounded-0" src="~/UITheme/images/Van Gogh 1.jpeg" alt="">
     </a>
@@ -87,17 +89,9 @@
         </p>
         <a href="~/UITheme/post-details.html" class="btn btn-primary">Read More <img src="~/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
     </div>
-</div>
-
-<<<<<<< arayüz
+</div>  *@
 <!-- end of post-item -->
-=======
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@*   <table class="table">
     <thead>
         <tr>
             <th>
@@ -120,35 +114,58 @@
             </th>
             <th></th>
         </tr>
-    </thead>
-    <tbody>
+    </thead> *@
+    <tbody> 
+        
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GonderiName)
-            </td>
+            <div class="card post-item bg-transparent border-0 mb-5">
+    <a href="/UITheme/post-details.html">
+        <img class="card-img-top rounded-0" src="@item.GonderiResim" alt="">
+    </a>
+    <div class="card-body px-0">
+        <h2 class="card-title">
+            <a class="text-white opacity-75-onHover" href="/UITheme/post-details.html">@item.GonderiName</a>
+        </h2>
+        <ul class="post-meta mt-3">
+            <li class="d-inline-block mr-3">
+                <span class="fas fa-clock text-primary"></span>
+                <a class="ml-1" href="/UITheme/#">24 April, 2016</a>
+            </li>
+            <li class="d-inline-block">
+                <span class="fas fa-list-alt text-primary"></span>
+                <a class="ml-1" href="/UITheme/#">Photography</a>
+            </li>
+        </ul>
+        <p class="card-text my-4">
+            @item.GonderiIcerik
+        </p>
+        <a href="/UITheme/post-details.html" class="btn btn-primary">Read More <img src="/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
+    </div>
+</div>
+@*
+              <td>
+                @Html.DisplayFor(modelItem => item.GonderiBaslik)
+            </td> 
             <td>
                 @Html.DisplayFor(modelItem => item.kategoriId)
-            </td>
+            </td> 
             <td>
-                @Html.DisplayFor(modelItem => item.GonderiBaslik)
+                <br/>
+                <span class="underline-text">@Html.DisplayFor(modelItem => item.GonderiName)</span>
             </td>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.GonderiIcerik)
+                <img src="@item.GonderiResim" alt="Kullanıcı Resmi" width="635" height="495" />
+                <br/>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GonderiResim)
-                </td>
+            <td>
+                 @Html.DisplayFor(modelItem => item.GonderiIcerik)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.GonderiId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.GonderiId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.GonderiId">Delete</a>
-            </td>
+            </td> *@
         </tr>
 }
     </tbody>
-</table>
->>>>>>> main
+ 

@@ -9,9 +9,9 @@ namespace EFLayer.Class
     public class Iletisim
     {
         public int IletisimId { get; set; }
-        public string Mail { get; set; }
-        public string  Telefon { get; set; }
-        public string Adres { get; set; }
+        public string? Mail { get; set; }
+        public string?  Telefon { get; set; }
+        public string? Adres { get; set; }
 
     }
 }
