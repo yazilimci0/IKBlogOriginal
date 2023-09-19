@@ -20,9 +20,8 @@ namespace IKBlok.Controllers
         // GET: Hakkimdas
         public async Task<IActionResult> Index()
         {
-              return _context.Hakkimdas != null ? 
-                          View(await _context.Hakkimdas.ToListAsync()) :
-                          Problem("Entity set 'IKBlokContex.Hakkimdas'  is null.");
+              return View(hk.getAllList().FirstOrDefault());
+
         }
 
         // GET: Hakkimdas/Details/5

@@ -12,7 +12,7 @@ using DataAccessLayer.EntittyFramework;
 
 namespace IKBlok.Controllers
 {
-
+	[Yetki]
 	public class AdminIletisimController : Controller
 	{
 

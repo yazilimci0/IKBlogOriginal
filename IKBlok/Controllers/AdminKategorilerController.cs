@@ -12,6 +12,7 @@ using DataAccessLayer.EntittyFramework;
 
 namespace IKBlok.Controllers
 {
+    [Yetki]
     public class AdminKategorilerController : Controller
     {
 		
