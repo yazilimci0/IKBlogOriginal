@@ -38,6 +38,12 @@ namespace BusinessLayer.Managment
             GonderiRepo.remove(gonderiler);
         }
 
+        public List<Gonderiler> SgetGonderiByKategoriId(int id)
+        {
+            var liste = GonderiRepo.getGonderiByKategoriId((int)id);
+            return GonderiRepo.getGonderiByKategoriId((int)id);
+        }
+
         public void update(Gonderiler gonderiler)
         {
             GonderiRepo.update(gonderiler);
