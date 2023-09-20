@@ -31,7 +31,7 @@ public partial class IKBlokContex : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-#if (iremveritabani && !salihveritabani)
+
         optionsBuilder.UseSqlServer("Data Source=LAPTOP-CHVDTKO4\\SQLEXPRESS;Initial Catalog=IKBlok;Integrated Security=True;TrustServerCertificate=True");
 
     }
