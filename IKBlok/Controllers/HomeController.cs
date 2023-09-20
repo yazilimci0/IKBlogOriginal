@@ -1,4 +1,6 @@
-﻿using DataAccessLayer.Repostory;
+﻿using BusinessLayer.Managment;
+using DataAccessLayer.EntittyFramework;
+using DataAccessLayer.Repostory;
 using EFLayer.Class;
 using IKBlok.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +11,8 @@ namespace IKBlok.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        DataKategoriRepostory dkr=new DataKategoriRepostory();
+        KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
-        
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -19,7 +20,7 @@ namespace IKBlok.Controllers
 
         public IActionResult Index()
         {
-
+            ViewData["kategoriler"]=kt.getAllList();
             return View();
         }
 

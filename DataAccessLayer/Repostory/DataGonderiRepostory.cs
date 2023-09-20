@@ -40,7 +40,13 @@ namespace DataAccessLayer.Repostory
 			return IKBlokContex.Gonderis.Find(id);
 		}
 
-		public void remove(Gonderiler gonderiler)
+        public List<Gonderiler> getGonderiByKategoriId(int id)
+        {
+            var test1 = IKBlokContex.Gonderis.Where(x => x.kategoriId == id).ToList();
+            return test1.ToList();
+        }
+
+        public void remove(Gonderiler gonderiler)
         {
             IKBlokContex.Remove(gonderiler);
             IKBlokContex.SaveChanges(); 

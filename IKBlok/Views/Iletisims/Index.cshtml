@@ -11,8 +11,7 @@
             <div class="col-md-12">
                 <label for="message" class="text-black-300">Adres</label>
                 <div class="form-group mb-5">
-                    
-                    @Html.TextAreaFor(model => model.Adres, new { cols = 35, @rows = 3, @readonly = "readonly" })
+                    @Html.TextAreaFor(model => model.Adres, new { @class="form-control bg-transparent rounded-0 border-bottom shadow-none pb-15 px-0", @rows = 3, @readonly = "readonly" })
                 </div>
             </div>
             <div class="col-md-12">

@@ -17,29 +17,18 @@ namespace IKBlok.Controllers
         IKBlokContex _context = new IKBlokContex();
         GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
         // GET: UIGonderiler
-
         public async Task<IActionResult> Index()
         {
             return View(py.getAllList());
         }
-
+        public async Task<IActionResult> mainPageKategories(int id)
+        {
+            return View(py.SgetGonderiByKategoriId(id));
+        }
         // GET: UIGonderiler/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Gonderis == null)
-            {
-                return NotFound();
-            }
-
-            var gonderiler = await _context.Gonderis
-                .Include(g => g.Kategories)
-                .FirstOrDefaultAsync(m => m.GonderiId == id);
-            if (gonderiler == null)
-            {
-                return NotFound();
-            }
-
-            return View(gonderiler);
+            return View(py.getAllList().Where(x=> x.GonderiId == id).ToList());
         }
 
         // GET: UIGonderiler/Create
