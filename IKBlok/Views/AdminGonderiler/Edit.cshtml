@@ -5,15 +5,12 @@
 	Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<script src="~/ckeditor.js"></script>
-<script src="~/ckeditor/build-config.js"></script>
-<script src="~/ckeditor/config.js"></script>
-<link href="~/ckeditor/contents.css" rel="stylesheet" />
-<script src="~/ckeditor/styles.js"></script>
-
-@* <script src="~/ckeditor/ckeditor.js"></script> *@
-
-
+<style>
+	.ck-editor__editable_inline {
+		min-height: 400px;
+	}
+</style>
+<script src="~/ckeditor/oureditor.js"></script>
 <h5>Gönderileri Düzenle</h5>
 <hr />
 <div class="row">
@@ -40,7 +37,7 @@
 			<div class="form-group">
 
 				<label asp-for="kategoriId" class="control-label"></label>
-				@*  <select asp-for="kategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select> *@
+			@*  <select asp-for="kategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select> *@
 
 				@Html.DropDownList("kategoriId",null,new {@class="form-control"} )
 				<span asp-validation-for="kategoriId" class="text-danger"></span>
@@ -54,23 +51,21 @@
 						</h3>
 					</div>
 					<div class="card-body">
-						<textarea name="GonderiIcerik" id="editor1" rows="10" cols="80">
-				This is my textarea to be replaced with CKEditor 4.
-			</textarea>
-						<script>
-							// Replace the <textarea id="editor1"> with a CKEditor 4
-							// instance, using default configuration.
-							CKEDITOR.replace('editor1');
-						</script>
-						</
-				@*  <textarea id="editor" name="GonderiIcerik" rows="5"> </textarea> *@
-
-						@* <textarea id="summernote" style="display: none;">Place &lt;em&gt;some&lt;/em&gt; &lt;u&gt;text&lt;/u&gt; &lt;strong&gt;here&lt;/strong&gt;</textarea> *@
-
+						
+						<textarea id="editor" name="GonderiIcerik" rows="5" style="color:#000;"> </textarea>
+				
 					</div>
 				</div>
 			</div>
 			<div class="form-group">
+
+				<label asp-for="kategoriId" class="control-label"></label>
+				@*  <select asp-for="kategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select> *@
+
+				@Html.DropDownList("kategoriId",null,new {@class="form-control"} )
+				<span asp-validation-for="kategoriId" class="text-danger"></span>
+			</div>
+			 <div class="form-group">
 				<input type="submit" value="Save" class="btn btn-primary" />
 			</div>
 		</form>
@@ -80,16 +75,15 @@
 <div>
 	<a asp-action="Index">Back to List</a>
 </div>
-<script>
-	// Replace the <textarea id="editor1"> with a CKEditor 4
-	// instance, using default configuration.
-	CKEDITOR.replace('editor1');
-</script>
-@* <script>
+
+ <script>
 	ClassicEditor
-		.create(document.querySelector('#editor1'))
+		.create(document.querySelector('#editor'))
 		.catch(error => {
 			console.error(error);
 		});
 </script>
- *@
+
+
+
+
