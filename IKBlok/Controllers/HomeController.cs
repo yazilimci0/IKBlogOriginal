@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Managment;
+using DataAccess.Context;
 using DataAccessLayer.EntittyFramework;
 using DataAccessLayer.Repostory;
 using EFLayer.Class;
@@ -10,18 +11,19 @@ namespace IKBlok.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
+        //private readonly ILogger<HomeController> _logger;
+        //KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
+        IKBlokContex _context = new IKBlokContex();
+        GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
 
         public IActionResult Index()
         {
-            ViewData["kategoriler"]=kt.getAllList();
-            return View();
+            return View(py.getAllList());
         }
 
         public IActionResult Privacy()

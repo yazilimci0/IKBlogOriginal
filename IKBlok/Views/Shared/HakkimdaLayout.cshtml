@@ -38,14 +38,16 @@
         <!-- start of sidenav -->
         <aside>
             <div class="sidenav position-sticky d-flex flex-column justify-content-between">
-                <a class="navbar-brand" href="~/UITheme/index.html" class="logo" style="background-color:transparent">
+                @* <a class="navbar-brand" href="/Home/Index" class="logo" style="background-color:transparent">
                     <img src="~/UITheme/images/logo.png" alt="">
-                </a>
+                </a> *@
                 <!-- end of navbar-brand -->
 
                 <div class="navbar navbar-dark my-4 p-0 font-primary">
                     <ul class="navbar-nav w-100">
-
+                        <li class="nav-item ">
+                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                        </li>
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
                         <li class="nav-item  accordion">
@@ -68,12 +70,6 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Create" asp-controller="Register">Kayıt Ol</a>
-                        </li>
-                        <li class="nav-item mt-3">
-                            <select class="custom-select bg-transparent rounded-0 text-white shadow-none" id="pick-lang">
-                                <option selected value="en">English</option>
-                                <option value="fr">French</option>
-                            </select>
                         </li>
                     </ul>
                 </div>

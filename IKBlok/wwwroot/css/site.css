@@ -40,6 +40,12 @@ body {
     background-color: transparent;
     margin-bottom: 10px;
 }
+.txt-text2 {
+    color: white;
+    font-family:'Copperplate Gothic','Papyrus','fantasy';
+    background-color:transparent;
+    height:30px;
+}
 
 .btn-img {
     width: 30px;
@@ -49,8 +55,6 @@ body {
 }
 
 .div {
-    margin-left: 500px;
-    margin-right: 500px;
     display: flex;
     width: 500px;
     justify-content: flex-end;

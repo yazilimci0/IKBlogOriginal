@@ -27,7 +27,12 @@ namespace BusinessLayer.Managment
             return GonderiRepo.getAllList();
         }
 
-		public Gonderiler getCategoryById(int id)
+        public List<Gonderiler> getAllListWithKategori()
+        {
+            return GonderiRepo.getAllListWithKategori();
+        }
+
+        public Gonderiler getCategoryById(int id)
 		{
 			return GonderiRepo.getCategoryById(id);
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -17,8 +18,7 @@ namespace EFLayer.Class
         public string? GonderiIcerik { get; set; }
         public string? GonderiResim { get; set; }
         public int? kategoriId { get; set; }
-        //public DateTime? gonderiTarihi { get; set; }
-        [ForeignKey(nameof(kategoriId))]
+        public DateTime? gonderiTarihi { get; set; }
         public Kategories? Kategories { get; set; }
     }
 }
