@@ -1,6 +1,7 @@
 ﻿using DataAccess.Context;
 using DataAccessLayer.Interface;
 using EFLayer.Class;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,14 @@ namespace DataAccessLayer.Repostory
 		{
 			return IKBlokContex.Set<Gonderiler>()
 			   .ToList();
-
 		}
+
+        public List<Gonderiler> getAllListWithKategori()
+        {
+            return IKBlokContex.Set<Gonderiler>()
+               .Include(i=>i.Kategories)
+               .ToList();
+        }
 
 
 		public Gonderiler getCategoryById(int id)

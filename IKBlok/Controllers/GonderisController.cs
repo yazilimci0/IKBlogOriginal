@@ -19,7 +19,7 @@ namespace IKBlok.Controllers
         // GET: UIGonderiler
         public async Task<IActionResult> Index()
         {
-            return View(py.getAllList());
+            return View(py.getAllListWithKategori());
         }
         public async Task<IActionResult> mainPageKategories(int id)
         {
@@ -28,7 +28,7 @@ namespace IKBlok.Controllers
         // GET: UIGonderiler/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            return View(py.getAllList().Where(x=> x.GonderiId == id).ToList());
+            return View(py.getAllListWithKategori().Where(x=> x.GonderiId == id).ToList());
         }
 
         // GET: UIGonderiler/Create

@@ -13,7 +13,8 @@ namespace BusinessLayer.Services
         void remove(Gonderiler gonderiler);
         void update(Gonderiler gonderiler);
         List<Gonderiler> getAllList();
-		Gonderiler getCategoryById(int id);
+        List<Gonderiler> getAllListWithKategori();
+        Gonderiler getCategoryById(int id);
 
         List<Gonderiler> SgetGonderiByKategoriId(int id);
 
