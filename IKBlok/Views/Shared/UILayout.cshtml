@@ -38,25 +38,28 @@
         <!-- start of sidenav -->
         <aside>
             <div class="sidenav position-sticky d-flex flex-column justify-content-between">
-                <a class="navbar-brand" href="~/UITheme/index.html" class="logo" style="background-color:transparent">
+                @* <a class="navbar-brand" href="/Home/Index" class="logo" style="background-color:transparent">
                     <img src="~/UITheme/images/logo.png" alt="">
-                </a>
+                </a> *@
                 <!-- end of navbar-brand -->
 
                 <div class="navbar navbar-dark my-4 p-0 font-primary">
                     <ul class="navbar-nav w-100">
-                        
+                        <li class="nav-item ">
+                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                        </li>
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
                         <li class="nav-item  accordion">
+                            <a class="nav-link text-white" href="~/UITheme/#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
-                                <a class="d-block " href="~/Kategories/Index">Tüm Yazılar</a>
-                                <a class="d-block " href="~/UITheme/category2.html">Sanat</a>
+                                   
+                                        @await Html.PartialAsync("kategoriPartial")
+
+
 
                             </div>
-                            <a class="nav-link text-white" href="~/UITheme/#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                         </li>
-
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Gonderis">Gönderiler</a>
                         </li>
@@ -68,12 +71,6 @@
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Create" asp-controller="Register">Kayıt Ol</a>
-                        </li>
-                        <li class="nav-item mt-3">
-                            <select class="custom-select bg-transparent rounded-0 text-white shadow-none" id="pick-lang">
-                                <option selected value="en">English</option>
-                                <option value="fr">French</option>
-                            </select>
                         </li>
                     </ul>
                 </div>
@@ -173,56 +170,36 @@
                             </form>
                         </div>
                         <!-- end of subscription-widget -->
-
+                        
                         <div class="widget">
+                            
                             <div class="mb-5 text-center">
-                                <h2 class="widget-title text-white d-inline-block">Son Gönderiler</h2>
+                                <h2 class="widget-title text-white d-inline-block">Son Gönderi</h2>
                             </div>
                             <div class="card post-item bg-transparent border-0 mb-5">
-                                <a href="~/UITheme/post-details.html
-                                    <img class="card-img-top rounded-0" src="~/UITheme/images/post/post-sm/01.png" alt="">
-                                </a>
-                                <div class="card-body px-0">
-                                    <h2 class="card-title">
-                                        <a class="text-white opacity-75-onHover" href="~/UITheme/post-details.html">metin</a>
-                                    </h2>
-                                    <ul class="post-meta mt-3 mb-4">
-                                        <li class="d-inline-block mr-3">
-                                            <span class="fas fa-clock text-primary"></span>
-                                            <a class="ml-1" href="~/UITheme/#">24 April, 2016</a>
-                                        </li>
-                                        <li class="d-inline-block">
-                                            <span class="fas fa-list-alt text-primary"></span>
-                                            <a class="ml-1" href="~/UITheme/#">Photography</a>
-                                        </li>
-                                    </ul>
-                                    <a href="~/UITheme/post-details.html" class="btn btn-primary">Read More <img src="~/UITheme/images/arrow-right.png" alt=""></a>
-                                </div>
-                            </div>
-                            <!-- end of widget-post-item -->
-                            <div class="card post-item bg-transparent border-0 mb-5">
-                                <a href="~/UITheme/post-details.html">
                                     <img class="card-img-top rounded-0" src="~/UITheme/images/post/post-sm/02.png" alt="">
                                 </a>
                                 <div class="card-body px-0">
                                     <h2 class="card-title">
-                                        <a class="text-white opacity-75-onHover" href="~/UITheme/post-details.html">metin</a>
+                                        <a class="text-white opacity-75-onHover">metin</a>
                                     </h2>
                                     <ul class="post-meta mt-3 mb-4">
                                         <li class="d-inline-block mr-3">
                                             <span class="fas fa-clock text-primary"></span>
-                                            <a class="ml-1" href="~/UITheme/#">24 April, 2016</a>
+                                            <a class="ml-1">Tarih gelecek</a>
                                         </li>
                                         <li class="d-inline-block">
                                             <span class="fas fa-list-alt text-primary"></span>
-                                            <a class="ml-1" href="~/UITheme/#">Photography</a>
+                                            <a class="ml-1">Kategorisi gelecek</a>
                                         </li>
                                     </ul>
-                                    <a href="~/UITheme/post-details.html" class="btn btn-primary">Read More <img src="~/UITheme/images/arrow-right.png" alt=""></a>
+                                    <a href="~/UITheme/post-details.html" class="btn btn-primary">Daha Fazla <img src="~/UITheme/images/arrow-right.png" alt=""></a>
                                 </div>
+                                
                             </div>
                             <!-- end of widget-post-item -->
                         </div>
+                        
                         <!-- end of post-items widget -->
                     </div>
                 </div>

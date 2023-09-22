@@ -100,13 +100,13 @@ namespace IKBlok.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Edit(int id, [Bind("IletisimId,Mail,Telefon,Adres")] Iletisim iletisim)
 		{
+            if (ModelState.IsValid)
+            {
+                il.update(iletisim);
+                return RedirectToAction(nameof(Index));
+            }
 
-			if (ModelState.IsValid)
-			{
-				il.update(iletisim);
-				return RedirectToAction(nameof(Index));
-			}
-			return View(iletisim);
+            return View(iletisim);
 		}
 
 

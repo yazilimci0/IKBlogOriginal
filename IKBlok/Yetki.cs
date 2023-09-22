@@ -44,7 +44,7 @@ namespace IKBlok
 
                 var routeValues2 = new RouteValueDictionary
                 {
-                    { "controller", "Hakkimdas" },
+                    { "controller", "Home" },
                     { "action", "Index" }
                 };
 

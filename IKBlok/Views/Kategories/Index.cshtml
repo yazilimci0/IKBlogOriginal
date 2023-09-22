@@ -5,9 +5,6 @@
     Layout = "~/Views/Shared/UILayout.cshtml";
 }
 <h1>KATEGORİLER</h1>
-@* <p>
-    <a asp-action="Create">Create New</a>
-</p> *@
 <table class="table">
     @* <thead>
         <tr>
@@ -20,14 +17,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td >
+            <td style="color:white">
                 @Html.DisplayFor(modelItem => item.kategoryName)
             </td>
-            @* <td>
-                <a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.kategoriId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
-            </td> *@
         </tr>
 }
     </tbody>

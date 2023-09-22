@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Interface
 {
-    public interface IGonderiData<Gonderi>
+    public interface IGonderiData<Gonderiler>
     {
         void add(Gonderiler gonderiler);
         void remove(Gonderiler gonderiler);
         void update(Gonderiler gonderiler);
         List<Gonderiler> getAllList();
-		Gonderi getCategoryById(int id);
+        List<Gonderiler> getAllListWithKategori();
+        Gonderiler getCategoryById(int id);
 
-
+        List<Gonderiler> getGonderiByKategoriId(int id);
 
 
 	}
