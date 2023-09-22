@@ -5,16 +5,17 @@ using DataAccessLayer.Repostory;
 using EFLayer.Class;
 using IKBlok.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 
 namespace IKBlok.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-        //KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
+
+        KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
         IKBlokContex _context = new IKBlokContex();
-        GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
+        GonderiManagement gm = new GonderiManagement(new EfGonderiRepo());
 
         //public HomeController(ILogger<HomeController> logger)
         //{
@@ -23,8 +24,15 @@ namespace IKBlok.Controllers
 
         public IActionResult Index()
         {
-            return View(py.getAllList());
+            return View(kt.getAllList());
         }
+        //public async Task<IActionResult> mainPageKategories(int id)
+        //{
+        //    var kategoriler = new SelectList(kt.getAllList(), "kategoriId", "kategoryName");
+        //    TempData["kategoriler"] = kategoriler;
+        //    ViewData["kategoriler"] = kategoriler;
+        //    return RedirectToPage("mainPageKategories");
+        //}
 
         public IActionResult Privacy()
         {

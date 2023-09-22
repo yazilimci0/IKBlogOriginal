@@ -28,6 +28,7 @@ namespace DataAccessLayer.Repostory
 
         }
 
+
 		public Kategories getCategoryById(int id)
 		{
 			return IKBlokContex.Kategories.Find(id);

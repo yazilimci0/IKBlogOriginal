@@ -51,11 +51,14 @@
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
                         <li class="nav-item  accordion">
-                            <a class="nav-link text-white" href="~/UITheme/#!" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
+                            <a class="nav-link text-white" href="~/UITheme/#" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
                                    
-                                        @await Html.PartialAsync("kategoriPartial")
-
+                                          @* @await Html.PartialAsync("kategoriPartial")   *@
+                                    @foreach (var kategori in ViewData["Kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
+                                    {
+                                    <a class="nav-link" href="Gonderis/mainPageKategories/@kategori.kategoriId">@kategori.kategoryName</a>
+                                    }
 
 
                             </div>
@@ -67,7 +70,7 @@
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Iletisims">İletişim</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Login">Gİriş Yap</a>
+                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Login">Giriş Yap</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Create" asp-controller="Register">Kayıt Ol</a>

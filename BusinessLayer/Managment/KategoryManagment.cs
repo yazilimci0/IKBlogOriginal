@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Services;
+using DataAccess.Context;
 using DataAccessLayer.EntittyFramework;
 using EFLayer.Class;
 using System;
@@ -28,7 +29,7 @@ namespace BusinessLayer.Managment
             return kategoryRepo.getAllList();
         }
 
-		public Kategories getCategoryById(int id)
+        public Kategories getCategoryById(int id)
 		{
 			return kategoryRepo.getCategoryById(id);
 		}

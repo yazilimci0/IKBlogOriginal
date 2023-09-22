@@ -57,7 +57,9 @@ body {
 .div {
     display: flex;
     width: 500px;
-    justify-content: flex-end;
+    justify-content: center;
+    margin-left: 500px;
+    margin-right: 500px;
 }
 
 .div2 {
@@ -86,4 +88,11 @@ body {
 }
 .underline-text {
     text-decoration: underline;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width : 500px;
+    min-height: 100vh; /* Sayfanýn yüksekliði kadar uzanacak þekilde ayarlayýn */
 }
