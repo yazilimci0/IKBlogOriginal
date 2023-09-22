@@ -4,7 +4,15 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UILayout.cshtml";
 }
-
+@if (ViewData["kategoriler"] != null)
+{
+    var kategoriler = ViewData["kategoriler"] as SelectList;
+    foreach (var item in kategoriler)
+    {
+        <a class="d-block " href="Gonderis/mainPageKategories/@item.Value">@item.Text</a>
+    }
+}
+@*
 <tbody>
 
     @foreach (var item in Model)
@@ -23,13 +31,26 @@
                         </li>
                         <li class="d-inline-block">
                             <span class="fas fa-list-alt text-primary"></span>
-                            <a class="ml-1">@item.kategoriId</a>
+
+                            <a class="ml-1">@item.Kategories.kategoryName</a>
                         </li>
                     </ul>
                     <p class="card-text my-4">
-                        @item.GonderiIcerik.Substring(0,120)
+                        @{
+                            string gonderiIcerik = item.GonderiIcerik;
+                            if (gonderiIcerik.Length > 120)
+                            {
+                                int sonKelimeninBaslangic = gonderiIcerik.LastIndexOf(' ', 119);
+                                if (sonKelimeninBaslangic > 0)
+                                {
+                                    gonderiIcerik = gonderiIcerik.Substring(0, sonKelimeninBaslangic);
+                                }
+                            }
+                        }
+                        @gonderiIcerik
+                        @* @item.GonderiIcerik.Substring(0,120) 
                     </p>
-                    <a href="Gonderis/Details/@item.GonderiId" class="btn btn-primary">Read More <img src="/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
+                    <a href="Gonderis/Details/@item.GonderiId" class="btn btn-primary">Daha Fazla <img src="/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
                 </div>
             </div>
             @*
@@ -53,7 +74,8 @@
         </td>
         <td>
         @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
-        </td> *@
+        </td> 
         </tr>
     }
 </tbody>
+*@

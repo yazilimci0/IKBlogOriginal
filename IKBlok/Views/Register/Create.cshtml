@@ -10,38 +10,29 @@
 
 <h2 style="font-size:xx-large; color:white">Kayıt Ekranı</h2>
 <hr />
-
 <div class="div">
     <form asp-action="Create" class="form-control bg-transparent" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="div2">
-
             <div class="input-with-button">
-                @*  <label class="lbl-text">Ad:</label> *@
                 <input asp-for="Name" class="txt-text" placeholder="Ad" />
             </div>
             <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="div2">
-
             <div class="input-with-button">
-                @* <label class="lbl-text">Soyad:</label> *@
                 <input asp-for="SurName" class="txt-text" placeholder="Soyad" />
             </div>
             <span asp-validation-for="SurName" class="text-danger"></span>
         </div>
         <div class="div2">
-
             <div class="input-with-button">
-                @* <label class="lbl-text">Kullanıcı Adı:</label>  *@
                 <input asp-for="UserAdi" class="txt-text" placeholder="Kullanıcı Adı" />
             </div>
             <span asp-validation-for="UserAdi" class="text-danger"></span>
         </div>
         <div class="div2">
-
             <div class="input-with-button">
-                @* <label class="lbl-text">Şifre:</label>  *@
                 <input asp-for="Password" class="txt-text" type="password" id="passwordField" placeholder="şifre" />
                 <button class="btn-img bg-transparent" type="button" id="togglePasswordButton" style="background-color:black">
                     <img src="~/web/şifregizleme1.png" />
@@ -49,10 +40,6 @@
             </div>
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
-
-
-
-
         <div class="form-group">
             <button class="btn" type="submit">Kayıt Ol</button>
         </div>
@@ -60,12 +47,9 @@
         <div>
             <a class="btn" asp-action="Index" asp-controller="Login">Giriş Yap</a>
         </div>
-
         <div class="login-agileits-bottom1">
             <h3>Veya</h3>
-
         </div>
-
         <div class="social_icons agileinfo">
             <ul class="top-links">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -76,8 +60,6 @@
         </div>
     </form>
 </div>
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         var passwordField = document.getElementById('passwordField');
@@ -100,56 +82,9 @@
                 title: 'Başarılı!',
                 text: 'Kullanıcı kaydınız başarıyla tamamlandı.',
             }).then(function () {
-                window.location.href = '@Url.Action("Index", "Login")'});
+                window.location.href = '@Url.Action("Index", "Login")'
+            });
 
         </text>
     }
 </script>
-
-@* @model EFLayer.Class.User
-
-@{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h1>Create</h1>
-
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SurName" class="control-label"></label>
-                <input asp-for="SurName" class="form-control" />
-                <span asp-validation-for="SurName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserAdi" class="control-label"></label>
-                <input asp-for="UserAdi" class="form-control" />
-                <span asp-validation-for="UserAdi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
- *@

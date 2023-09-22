@@ -20,6 +20,7 @@ namespace IKBlok.Controllers
     {
         IKBlokContex _context=new IKBlokContex();
         KategoryManagment kt=new KategoryManagment(new EfKategoryRepo());
+        GonderiManagement gm = new GonderiManagement(new EfGonderiRepo());
 
         // GET: Kategories
         public async Task<IActionResult> Index()
