@@ -13,12 +13,25 @@ namespace EFLayer.Class
     {
         [Key]
         public int GonderiId { get; set; }
+        [DisplayName("Gönderi Adı")]
         public string? GonderiName { get; set; }
+        [DisplayName("Başlık")]
         public string? GonderiBaslik { get; set; }
+        [DisplayName("İçerik")]
         public string? GonderiIcerik { get; set; }
+        [DisplayName("Resimler")]
+
         public string? GonderiResim { get; set; }
+
+        [DisplayName("Kategori Id")]
+
+        public int? kategoriId { get; set; }
+        [DisplayName("Kategori Adı")]
+
+
         public int? kategoriId { get; set; }
         public DateTime? gonderiTarihi { get; set; }
+main
         public Kategories? Kategories { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,21 @@ namespace EFLayer.Class
     {
         [Key]
         public int UserId { get; set; }
-		public string? Name { get; set; }
-		public String? SurName { get; set; }
+       
+ [DisplayName("Adı")]
+        public string? Name { get; set; }
+       
+        [DisplayName("Soyadı")]
+
+        public String? SurName { get; set; }
+        [DisplayName("Kullanıcı Adı")]
+
         public string? UserAdi { get; set; }
+        [DisplayName("Parola")]
+
         public string? Password { get; set; }
+        [DisplayName("Yetki Id")]
+
         public int RoleId { get; set; }
     }
 }
