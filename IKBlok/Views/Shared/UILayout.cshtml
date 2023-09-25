@@ -51,10 +51,10 @@
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
                         <li class="nav-item  accordion">
-                            <a class="nav-link text-white" href="~/UITheme/#" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
+                            <a class="nav-link text-white" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
-                                   
-                                           @await Html.PartialAsync("kategoriPartial") 
+
+                                    @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
 
 
                             </div>

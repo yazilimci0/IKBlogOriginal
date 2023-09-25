@@ -29,33 +29,22 @@
                         </li>
                     </ul>
                     <p class="card-text my-4">
-                        @item.GonderiIcerik.Substring(0,120)
+                        @{
+                            string gonderiIcerik = item.GonderiIcerik;
+                            if (gonderiIcerik.Length > 120)
+                            {
+                                int sonKelimeninBaslangic = gonderiIcerik.LastIndexOf(' ', 119);
+                                if (sonKelimeninBaslangic > 0)
+                                {
+                                    gonderiIcerik = gonderiIcerik.Substring(0, sonKelimeninBaslangic);
+                                }
+                            }
+                        }
+                        @gonderiIcerik
                     </p>
-                    <a href="Gonderis/Details/@item.GonderiId" class="btn btn-primary">Read More <img src="/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
+                    <a href="/Gonderis/Details/@item.GonderiId" class="btn btn-primary">Daha Fazla <img src="/UITheme/AdminLTE/images/arrow-right.png" alt=""></a>
                 </div>
             </div>
-            @*
-        <td>
-        @Html.DisplayFor(modelItem => item.GonderiBaslik)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.kategoriId)
-        </td>
-        <td>
-        <br/>
-        <span class="underline-text">@Html.DisplayFor(modelItem => item.GonderiName)</span>
-        </td>
-
-        <td>
-        <img src="@item.GonderiResim" alt="Kullanıcı Resmi" width="635" height="495" />
-        <br/>
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.GonderiIcerik)
-        </td>
-        <td>
-        @Html.DisplayFor(modelItem => item.Kategories.kategoryName)
-        </td> *@
         </tr>
     }
 </tbody>

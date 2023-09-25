@@ -22,13 +22,8 @@ namespace IKBlok.Controllers
 
         public IActionResult Index()
         {
-            Iletisim  kg= new Iletisim();
-            kg.IletisimId = 1;
-            kg.Adres = "name";
-            kg.Mail = "mail";
-            kg.Telefon = "05466";
-            TempData["kategoriler"] = kg;
-            //TempData["kategoriler"]=kt.getAllList();
+            
+            TempData["kategoriler"]=kt.getAllList();
             return View(gm.getAllListWithKategori());
         }
 
