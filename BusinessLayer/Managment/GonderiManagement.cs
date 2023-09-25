@@ -42,6 +42,10 @@ namespace BusinessLayer.Managment
         {
             GonderiRepo.remove(gonderiler);
         }
+        public DateTime GetMevcutTarih()
+        {
+            return DateTime.Now;
+        }
 
         public List<Gonderiler> SgetGonderiByKategoriId(int id)
         {

@@ -24,15 +24,8 @@ namespace IKBlok.Controllers
 
         public IActionResult Index()
         {
-            return View(kt.getAllList());
+            return View(gm.getAllListWithKategori());
         }
-        //public async Task<IActionResult> mainPageKategories(int id)
-        //{
-        //    var kategoriler = new SelectList(kt.getAllList(), "kategoriId", "kategoryName");
-        //    TempData["kategoriler"] = kategoriler;
-        //    ViewData["kategoriler"] = kategoriler;
-        //    return RedirectToPage("mainPageKategories");
-        //}
 
         public IActionResult Privacy()
         {

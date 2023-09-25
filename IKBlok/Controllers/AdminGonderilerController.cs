@@ -61,8 +61,8 @@ namespace IKBlok.Controllers
 
         public IActionResult Create()
         {
-
-
+            DateTime mevcutTarih = gn.GetMevcutTarih();
+            ViewData["MevcutTarih"] = mevcutTarih;
             ViewData["kategoriId"] = new SelectList(kt.getAllList(), "kategoriId", "kategoryName");
 
             return View();
