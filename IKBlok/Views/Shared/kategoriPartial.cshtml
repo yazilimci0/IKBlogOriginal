@@ -4,7 +4,7 @@
 {
     @foreach (var item in TempData["kategoriler"] as List<EFLayer.Class.Kategories>)
     {
-        <a class="d-block " href="Gonderis/mainPageKategories/@item.kategoriId">@item.kategoryName</a>
+        <a class="d-block " href="/Gonderis/mainPageKategories/@item.kategoriId">@item.kategoryName</a>
 
     }
 }

@@ -10,7 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntittyFramework
 {
-    public class EfGonderiRepo : DataGonderiRepostory,IGonderiData<Gonderiler>
+    public class EfGonderiRepo : DataGonderiRepostory, IGonderiData<Gonderiler>
     {
+        public Gonderiler getWithLastPost(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
