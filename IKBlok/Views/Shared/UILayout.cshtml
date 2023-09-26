@@ -54,8 +54,9 @@
                             <a class="nav-link text-white" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
 
-                                     @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
-  
+                                      @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
+                                      @* var kategoriler = HttpContext.Session.Get<List<EFLayer.Class.Kategories>>("kategoriler"); *@
+
 
                             </div>
                         </li>
@@ -68,35 +69,9 @@
                         <li class="nav-item ">
                             <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Login">Giriş Yap</a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Create" asp-controller="Register">Kayıt Ol</a>
-                        </li>
                     </ul>
                 </div>
                 <!-- end of navbar -->
-
-                <ul class="list-inline nml-2">
-                    <li class="list-inline-item">
-                        <a href="~/UITheme/#!" class="text-white text-red-onHover pr-2">
-                            <span class="fab fa-twitter"></span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="~/UITheme/#!" class="text-white text-red-onHover p-2">
-                            <span class="fab fa-facebook-f"></span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="~/UITheme/#!" class="text-white text-red-onHover p-2">
-                            <span class="fab fa-instagram"></span>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="~/UITheme/#!" class="text-white text-red-onHover p-2">
-                            <span class="fab fa-linkedin-in"></span>
-                        </a>
-                    </li>
-                </ul>
                 <!-- end of social-links -->
             </div>
         </aside>
@@ -158,16 +133,18 @@
                         </div>
                         <!-- end of author-widget -->
 
-                        @* <div class="widget bg-dark p-4 text-center">
-                            <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
+                        <div class="widget bg-dark p-4 text-center">
+                            <h2 class="widget-title text-white d-inline-block mt-4">Bize katılmak ister misin?</h2>
                             <p class="mt-4"></p>
                             <form action="#">
                                 <div class="form-group">
-                                    <input type="email" class="form-control bg-transparent rounded-0 my-4" placeholder="Your Email Address">
-                                    <button class="btn btn-primary">Subscribe Now <img src="~/UITheme/images/arrow-right.png" alt=""></button>
-                                </div>
+                                    <input type="text" class="form-control bg-transparent rounded-0 my-4" placeholder="Adınız">
+                                    <a class="btn" asp-action="Create" asp-controller="Register"><img src="~/UITheme/images/arrow-right.png" alt="">Şimdi Kayıt Ol</a>
+
+    @*<button class="btn btn-primary">Şimdi Kayıt Ol<img src="~/UITheme/images/arrow-right.png" alt=""></button>
+ *@                                </div>
                             </form>
-                        </div> *@
+                        </div>
                         <!-- end of subscription-widget -->
                         
                          <div class="widget">
