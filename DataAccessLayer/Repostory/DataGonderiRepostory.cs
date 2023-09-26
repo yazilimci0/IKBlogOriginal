@@ -12,7 +12,7 @@ namespace DataAccessLayer.Repostory
 {
     public class DataGonderiRepostory : IGonderiData<Gonderiler>
     {
-        IKBlokContex IKBlokContex=new IKBlokContex();
+        IKBlokContex IKBlokContex = new IKBlokContex();
         public void add(Gonderiler gonderiler)
         {
             IKBlokContex.Add(gonderiler);
@@ -28,24 +28,24 @@ namespace DataAccessLayer.Repostory
         //    return list;
         //}
 
-		public List<Gonderiler> getAllList()
-		{
-			return IKBlokContex.Set<Gonderiler>()
-			   .ToList();
-		}
+        public List<Gonderiler> getAllList()
+        {
+            return IKBlokContex.Set<Gonderiler>()
+               .ToList();
+        }
 
         public List<Gonderiler> getAllListWithKategori()
         {
             return IKBlokContex.Set<Gonderiler>()
-               .Include(i=>i.Kategories)
+               .Include(i => i.Kategories)
                .ToList();
         }
 
 
-		public Gonderiler getCategoryById(int id)
-		{
-			return IKBlokContex.Gonderis.Find(id);
-		}
+        public Gonderiler getCategoryById(int id)
+        {
+            return IKBlokContex.Gonderis.Find(id);
+        }
 
         public List<Gonderiler> getGonderiByKategoriId(int id)
         {
@@ -53,16 +53,25 @@ namespace DataAccessLayer.Repostory
             return test1.ToList();
         }
 
+    //    public Gonderiler getWithLastPost()
+    //    {
+    //        var enSonGonderi = IKBlokContex.Gonderis
+    //.Include(g => g.GonderiId) // İlgili Kategori nesnesini dahil et
+    //.OrderByDescending(g => g.GonderiId)
+    //.FirstOrDefault();
+    //        return enSonGonderi;
+    //    }
+
         public void remove(Gonderiler gonderiler)
         {
             IKBlokContex.Remove(gonderiler);
-            IKBlokContex.SaveChanges(); 
+            IKBlokContex.SaveChanges();
         }
 
         public void update(Gonderiler gonderiler)
         {
             IKBlokContex.Update(gonderiler);
-            IKBlokContex.SaveChanges(); 
+            IKBlokContex.SaveChanges();
         }
     }
 }

@@ -15,11 +15,6 @@ namespace IKBlok.Controllers
         IKBlokContex _context = new IKBlokContex();
         GonderiManagement gm = new GonderiManagement(new EfGonderiRepo());
 
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
-
         public IActionResult Index()
         {
             

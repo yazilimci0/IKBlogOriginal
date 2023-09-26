@@ -23,8 +23,13 @@ namespace IKBlok.Controllers
         }
         public async Task<IActionResult> mainPageKategories(int id)
         {
-            return View(py.SgetGonderiByKategoriId(id));
+            return View(py.getAllListWithKategori().Where(x => x.kategoriId == id).ToList());
         }
+        //public async Task<IActionResult> SonGonderi()
+        //{
+        //    ViewData["songonderi"] = py.getWithLastPost();
+        //    return View();
+        //}
         // GET: UIGonderiler/Details/5
         public async Task<IActionResult> Details(int? id)
         {

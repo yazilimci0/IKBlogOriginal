@@ -38,9 +38,9 @@
         <!-- start of sidenav -->
         <aside>
             <div class="sidenav position-sticky d-flex flex-column justify-content-between">
-                @* <a class="navbar-brand" href="/Home/Index" class="logo" style="background-color:transparent">
+                <a class="navbar-brand" href="/Home/Index" class="logo" style="background-color:transparent">
                     <img src="~/UITheme/images/logo.png" alt="">
-                </a> *@
+                </a>
                 <!-- end of navbar-brand -->
 
                 <div class="navbar navbar-dark my-4 p-0 font-primary">
@@ -54,8 +54,8 @@
                             <a class="nav-link text-white" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
 
-                                    @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
-
+                                     @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
+  
 
                             </div>
                         </li>
@@ -158,7 +158,7 @@
                         </div>
                         <!-- end of author-widget -->
 
-                        <div class="widget bg-dark p-4 text-center">
+                        @* <div class="widget bg-dark p-4 text-center">
                             <h2 class="widget-title text-white d-inline-block mt-4">Subscribe Blog</h2>
                             <p class="mt-4"></p>
                             <form action="#">
@@ -167,18 +167,21 @@
                                     <button class="btn btn-primary">Subscribe Now <img src="~/UITheme/images/arrow-right.png" alt=""></button>
                                 </div>
                             </form>
-                        </div>
+                        </div> *@
                         <!-- end of subscription-widget -->
                         
-                        <div class="widget">
+                         <div class="widget">
                             
                             <div class="mb-5 text-center">
-                                <h2 class="widget-title text-white d-inline-block">Son Gönderi</h2>
+                                <a class="widget-title text-white d-inline-block" href="~/Iletisims/Index/">Bize Ulaşın</a>
                             </div>
+                             @* @await Html.PartialAsync("SonGonderi") *@
+
                             <div class="card post-item bg-transparent border-0 mb-5">
+                                @* <a>
                                     <img class="card-img-top rounded-0" src="~/UITheme/images/post/post-sm/02.png" alt="">
-                                </a>
-                                <div class="card-body px-0">
+                                </a> *@
+                                @* <div class="card-body px-0">
                                     <h2 class="card-title">
                                         <a class="text-white opacity-75-onHover">metin</a>
                                     </h2>
@@ -193,9 +196,9 @@
                                         </li>
                                     </ul>
                                     <a href="~/UITheme/post-details.html" class="btn btn-primary">Daha Fazla <img src="~/UITheme/images/arrow-right.png" alt=""></a>
-                                </div>
+                                </div> *@
                                 
-                            </div>
+                            </div> 
                             <!-- end of widget-post-item -->
                         </div>
                         
