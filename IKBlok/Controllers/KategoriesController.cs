@@ -25,6 +25,7 @@ namespace IKBlok.Controllers
         // GET: Kategories
         public async Task<IActionResult> Index()
         {
+
             return View(kt.getAllList());
                 
         }
