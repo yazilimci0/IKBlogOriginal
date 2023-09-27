@@ -46,12 +46,12 @@
                 <div class="navbar navbar-dark my-4 p-0 font-primary">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
+                            <a class="nav-link text-white px-0" style="margin-bottom:10px" asp-action="Index" asp-controller="Home">Ana Sayfa</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
+                            <a class="nav-link text-white px-0" style="margin-bottom:10px" asp-action="Index" asp-controller="Hakkimdas">Hakkımda</a>
                         <li class="nav-item  accordion">
-                            <a class="nav-link text-white" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
+                            <a class="nav-link text-white" style="margin-bottom:10px" role="button" data-toggle="collapse" data-target="#drop-menu" aria-expanded="false" aria-controls="drop-menu">Kategoriler</a>
                             <div id="drop-menu" class="drop-menu collapse">
 
                                      @await Html.PartialAsync("kategoriPartial",TempData["kategoriler"] as IEnumerable<EFLayer.Class.Kategories>)
@@ -60,13 +60,13 @@
                             </div>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Gonderis">Gönderiler</a>
+                            <a class="nav-link text-white px-0" style="margin-bottom:10px" asp-action="Index" asp-controller="Gonderis">Gönderiler</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Iletisims">İletişim</a>
+                            <a class="nav-link text-white px-0" style="margin-bottom:10px" asp-action="Index" asp-controller="Iletisims">İletişim</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link text-white px-0" asp-action="Index" asp-controller="Login">Giriş Yap</a>
+                            <a class="nav-link text-white px-0" style="margin-bottom:10px" asp-action="Index" asp-controller="Login">Giriş Yap</a>
                         </li>
                         
                     </ul>
