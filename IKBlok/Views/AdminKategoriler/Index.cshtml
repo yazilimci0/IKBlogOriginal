@@ -8,6 +8,7 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
+
 <section class="content">
 	<div class="container-fluid">
 		<div class="row">
@@ -24,7 +25,7 @@
 							<thead>
 								<tr>
 									<th>Kategori Adı</th>
-
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -36,82 +37,21 @@
 											@Html.DisplayFor(modelItem => item.kategoryName)
 										</td>
 										<td>
-                                            <div style="float:right">
+											<div style="float:right">
 												<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.kategoriId">Düzenle</a>
-
-											<a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.kategoriId">Sil</a> 
-                                           </div>
+												<a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.kategoriId">Sil</a>
+											</div>
 										</td>
 									</tr>
 								}
 
-								@*  <tr>
-								<td>Trident</td>
-								</tr> *@
-
 						</table>
 					</div>
-
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
-
 </section>
-
-
-
-
-
-
-
-@* <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">DataTable with default features</h3>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-            <thead>
-                <tr>
-
-                    @Html.DisplayNameFor(model => model.kategoryName)
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.kategoryName)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.kategoriId">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
-                        </td>
-                    </tr>
-                }
-
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
-
-</div>
- *@
-
 
 
 <script>
@@ -132,40 +72,3 @@
 	});
 </script>
 
-@*
-
-
-
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.kategoryName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.kategoryName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.kategoriId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.kategoriId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.kategoriId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-
-
- *@
