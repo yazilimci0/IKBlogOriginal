@@ -3,7 +3,6 @@ using DataAccess.Context;
 using DataAccessLayer.EntittyFramework;
 using EFLayer.Class;
 using IKBlok.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -18,9 +17,8 @@ namespace IKBlok.Controllers
 
         public IActionResult Index()
         {
-
-            TempData["kategoriler"] = kt.getAllList();
-            //HttpContext.Session.Set<List<Kategories>>("kategoriler", kt.getAllList());
+            
+            TempData["kategoriler"]=kt.getAllList();
             return View(gm.getAllListWithKategori());
         }
 
