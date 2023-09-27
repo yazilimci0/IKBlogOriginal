@@ -26,8 +26,9 @@ namespace EFLayer.Class
         [DisplayName("Kategori Id")]
 
         public int? kategoriId { get; set; }
-        [DisplayName("Kategori Adı")]
-        public DateTime? gonderiTarihi { get; set; }
+		[DisplayName("Gönderi Tarihi")]
+
+		public DateTime? gonderiTarihi { get; set; }
         public Kategories? Kategories { get; set; }
     }
 }
