@@ -16,15 +16,20 @@ namespace IKBlok.Controllers
     {
         IKBlokContex _context = new IKBlokContex();
         IletisimManagment il = new IletisimManagment(new EfIletisimRepo());
+		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
-        // GET: Iletisims
-        public async Task<IActionResult> Index()
+		// GET: Iletisims
+		public async Task<IActionResult> Index()
         {
-              return View(il.getAllList().FirstOrDefault());
+			TempData["kategoriler"] = kt.getAllList();
+
+			return View(il.getAllList().FirstOrDefault());
         }
 
-        // GET: Iletisims/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+
+		// GET: Iletisims/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Iletisims == null)
             {

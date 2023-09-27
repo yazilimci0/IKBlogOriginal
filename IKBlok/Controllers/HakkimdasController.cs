@@ -15,12 +15,15 @@ namespace IKBlok.Controllers
     public class HakkimdasController : Controller
     {
         IKBlokContex _context = new IKBlokContex();
-        HakkimdaManagment hk = new HakkimdaManagment(new EfHakkimdaRepo());
+		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
+
+		HakkimdaManagment hk = new HakkimdaManagment(new EfHakkimdaRepo());
 
         // GET: Hakkimdas
         public async Task<IActionResult> Index()
         {
-              return View(hk.getAllList().FirstOrDefault());
+			TempData["kategoriler"] = kt.getAllList();
+			return View(hk.getAllList().FirstOrDefault());
 
         }
 

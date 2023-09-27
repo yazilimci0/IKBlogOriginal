@@ -16,14 +16,20 @@ namespace IKBlok.Controllers
     {
         IKBlokContex _context = new IKBlokContex();
         GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
-        // GET: UIGonderiler
-        public async Task<IActionResult> Index()
+		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
+
+		// GET: UIGonderiler
+		public async Task<IActionResult> Index()
         {
-            return View(py.getAllListWithKategori());
+			TempData["kategoriler"] = kt.getAllList();
+
+			return View(py.getAllListWithKategori());
         }
         public async Task<IActionResult> mainPageKategories(int id)
         {
-            return View(py.getAllListWithKategori().Where(x => x.kategoriId == id).ToList());
+			TempData["kategoriler"] = kt.getAllList();
+
+			return View(py.getAllListWithKategori().Where(x => x.kategoriId == id).ToList());
         }
         //public async Task<IActionResult> SonGonderi()
         //{
