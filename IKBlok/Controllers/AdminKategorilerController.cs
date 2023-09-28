@@ -16,7 +16,7 @@ namespace IKBlok.Controllers
 	[Yetki]
     public class AdminKategorilerController : Controller
     {
-		
+		IKBlokContex _context = new IKBlokContex();
 		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
 
@@ -69,6 +69,7 @@ namespace IKBlok.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+
 			return View(kt.getCategoryById(id));
 			
 		
@@ -76,10 +77,13 @@ namespace IKBlok.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Kategories kategories)
+        public async Task<IActionResult> DeleteConfirmed(int kategoriId)
         {
-			
-				kt.remove(kategories);
+            var kategorigetir = _context.Kategories.Where(x => x.kategoriId == kategoriId).Include(i => i.Gonderiler).FirstOrDefault();
+            _context.RemoveRange(kategorigetir.Gonderiler);
+            _context.Remove(kategorigetir);
+            _context.SaveChanges();
+            //kt.remove(kategories);
 				return RedirectToAction(nameof(Index));
 						
 		}

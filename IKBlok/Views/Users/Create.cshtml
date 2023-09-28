@@ -31,9 +31,11 @@
 							<div class="form-group">
 								<label asp-for="Name" class="control-label">Ad</label>
 								<input asp-for="Name" class="form-control" />
+							</div>
+							<div>
 								<span asp-validation-for="Name" class="text-danger"></span>
 							</div>
-
+							
 							<div class="form-group">
 								<label asp-for="SurName" class="control-label">Soyad</label>
 								<input asp-for="SurName" class="form-control" />
@@ -42,16 +44,35 @@
 							<div class="form-group">
 								<label asp-for="UserAdi" class="control-label">Kullanıcı Adı</label>
 								<input asp-for="UserAdi" class="form-control" />
+							</div>
+							<div>
 								<span asp-validation-for="UserAdi" class="text-danger"></span>
 							</div>
 							<div class="form-group">
 								<label asp-for="Password" class="control-label">Şifre</label>
 								<input asp-for="Password" class="form-control" />
+							</div>
+							<div>
 								<span asp-validation-for="Password" class="text-danger"></span>
 							</div>
-							<div class="form-group">
+							@* <div class="form-group">
 								<label asp-for="RoleId" class="control-label">Yetki Id</label>
 								<input asp-for="RoleId" class="form-control" />
+							</div> *@
+							<div class="form-group">
+
+								<label asp-for="RoleId" class="control-label">Yetki</label>
+								@* <select asp-for="kategoriId" class="form-control" asp-items="ViewBag.Kategoriler"></select> *@
+
+								@Html.DropDownList("RoleId", new List<SelectListItem>
+								{
+								new SelectListItem { Text = "Kullanıcı Yetkisi", Value = "0" },
+								new SelectListItem { Text = "Admin Yetkisi", Value = "1" },
+								new SelectListItem { Text = "Giriş Yasağı", Value = "2" }
+								}, new { @class = "form-control" })
+								<span asp-validation-for="RoleId" class="text-danger"></span>
+							</div>
+							<div>
 								<span asp-validation-for="RoleId" class="text-danger"></span>
 							</div>
 							<div class="form-group">

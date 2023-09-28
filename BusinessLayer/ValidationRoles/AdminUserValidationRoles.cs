@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRoles
 {
-    public class RegisterValidationRoles : AbstractValidator<User>
+    public class AdminUserValidationRoles : AbstractValidator<User>
     {
-        public RegisterValidationRoles()
+        public AdminUserValidationRoles()
         {
             RuleFor(x => x.Name).NotNull().WithMessage("Ad Boş geçilemez!");
             RuleFor(x => x.Name).Length(2, 50).WithMessage("Minimum 2 maksimum 50 karakter girilebilir.");
@@ -23,5 +23,3 @@ namespace BusinessLayer.ValidationRoles
         }
     }
 }
-
-

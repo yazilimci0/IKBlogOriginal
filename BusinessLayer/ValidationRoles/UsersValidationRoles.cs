@@ -15,7 +15,8 @@ namespace BusinessLayer.ValidationRoles
             RuleFor(x => x.UserAdi).NotNull().WithMessage("Ad Boş geçilemez!");
             RuleFor(x => x.UserAdi).Length(2, 50).WithMessage("Minimum 2 maksimum 50 karakter girilebilir.");
             RuleFor(x => x.Password).NotNull().WithMessage("Soyad Boş geçilemez!");
-            RuleFor(x => x.Password).Length(2, 25).WithMessage("Minimum 2 maksimum 25 karakter girilebilir.");
+            RuleFor(x => x.Password).Length(8, 25).WithMessage("Minimum 8 maksimum 25 karakter girilebilir.");
+            
         }
     }
 }

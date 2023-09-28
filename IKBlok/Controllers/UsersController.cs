@@ -10,6 +10,9 @@ using EFLayer.Class;
 using BusinessLayer.Managment;
 using DataAccessLayer.EntittyFramework;
 using Microsoft.AspNetCore.Authorization;
+using DataAccessLayer.Repostory;
+using BusinessLayer.ValidationRoles;
+using FluentValidation.Results;
 
 namespace IKBlok.Controllers
 {
@@ -18,6 +21,7 @@ namespace IKBlok.Controllers
 
 	public class UsersController : Controller
     {
+		DataUserRepostory db = new DataUserRepostory();
 		UserManagment us = new UserManagment(new EfUserRepo());
 		public async Task<IActionResult> Index()
         {
@@ -28,20 +32,32 @@ namespace IKBlok.Controllers
        
         public IActionResult Create()
         {
-            return View();
+			ViewData["RoleId"] = new SelectList(us.getAllList(), "RoleId","RoleId");
+			return View();
         }
 
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,SurName,Name,UserAdi,Password,RoleId")] User user)
+        public async Task<IActionResult> Create(User user)
         {
-			if (ModelState.IsValid)
+			RegisterValidationRoles us = new RegisterValidationRoles();
+			ValidationResult result = us.Validate(user);
+			if (result.IsValid)
 			{
-				us.add(user);
+				db.add(user);
 				return RedirectToAction(nameof(Index));
 			}
-			return View(user);
+			else
+			{
+				foreach (var item in result.Errors)
+				{
+
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+
+				}
+				return View(user);
+			}
 		}
 
         public async Task<IActionResult> Edit(int id)
@@ -53,14 +69,25 @@ namespace IKBlok.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,SurName,Name,UserAdi,Password,RoleId")] User user)
+        public async Task<IActionResult> Edit(User user)
         {
-			if (ModelState.IsValid)
+			RegisterValidationRoles us = new RegisterValidationRoles();
+			ValidationResult result = us.Validate(user);
+			if (result.IsValid)
 			{
-				us.update(user);
+				db.update(user);
 				return RedirectToAction(nameof(Index));
 			}
-			return View(user);
+			else
+			{
+				foreach (var item in result.Errors)
+				{
+
+					ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+
+				}
+				return View(user);
+			}
 		}
 
         public async Task<IActionResult> Delete(int id)

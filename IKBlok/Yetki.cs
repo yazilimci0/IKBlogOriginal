@@ -57,6 +57,24 @@ namespace IKBlok
 
                 return;
             }
+            else if (filterContext.HttpContext.Session.GetInt32("roleid") == null)
+            {
+
+                var routeValues = new RouteValueDictionary
+                {
+                    { "controller", "Home" },
+                    { "action", "Index" }
+                };
+
+                var redirectToRoutes = new List<RouteValueDictionary> { routeValues};
+                filterContext.Result = new RedirectToRouteResult(redirectToRoutes[0]);
+                for (int i = 0; i < redirectToRoutes.Count; i++)
+                {
+                    filterContext.Result = new RedirectToRouteResult(redirectToRoutes[i]);
+                }
+
+                return;
+            }
         }
     }
 }
