@@ -14,7 +14,6 @@ namespace DataAccessLayer.Interface
         void update(Gonderiler gonderiler);
         List<Gonderiler> getAllList();
         List<Gonderiler> getAllListWithKategori();
-        //Gonderiler getWithLastPost();
         Gonderiler getCategoryById(int id);
 
         List<Gonderiler> getGonderiByKategoriId(int id);

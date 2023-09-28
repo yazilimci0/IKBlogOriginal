@@ -18,40 +18,33 @@ namespace IKBlok.Controllers
         GonderiManagement py = new GonderiManagement(new EfGonderiRepo());
 		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
-		// GET: UIGonderiler
 		public async Task<IActionResult> Index()
         {
 			TempData["kategoriler"] = kt.getAllList();
 
 			return View(py.getAllListWithKategori());
         }
+
         public async Task<IActionResult> mainPageKategories(int id)
         {
 			TempData["kategoriler"] = kt.getAllList();
 
 			return View(py.getAllListWithKategori().Where(x => x.kategoriId == id).ToList());
         }
-        //public async Task<IActionResult> SonGonderi()
-        //{
-        //    ViewData["songonderi"] = py.getWithLastPost();
-        //    return View();
-        //}
-        // GET: UIGonderiler/Details/5
+
+      
         public async Task<IActionResult> Details(int? id)
         {
             return View(py.getAllListWithKategori().Where(x=> x.GonderiId == id).ToList());
         }
 
-        // GET: UIGonderiler/Create
         public IActionResult Create()
         {
             ViewData["GonderiId"] = new SelectList(_context.Kategories, "kategoriId", "kategoryName");
             return View();
         }
 
-        // POST: UIGonderiler/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("GonderiId,GonderiName,GonderiBaslik,GonderiIcerik,GonderiResim,kategoryId")] Gonderiler gonderiler)
@@ -66,7 +59,6 @@ namespace IKBlok.Controllers
             return View(gonderiler);
         }
 
-        // GET: UIGonderiler/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Gonderis == null)
@@ -83,9 +75,7 @@ namespace IKBlok.Controllers
             return View(gonderiler);
         }
 
-        // POST: UIGonderiler/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("GonderiId,GonderiName,GonderiBaslik,GonderiIcerik,GonderiResim,kategoryId")] Gonderiler gonderiler)
@@ -119,7 +109,6 @@ namespace IKBlok.Controllers
             return View(gonderiler);
         }
 
-        // GET: UIGonderiler/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Gonderis == null)
@@ -138,7 +127,6 @@ namespace IKBlok.Controllers
             return View(gonderiler);
         }
 
-        // POST: UIGonderiler/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

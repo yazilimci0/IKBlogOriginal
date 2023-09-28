@@ -20,14 +20,6 @@ namespace DataAccessLayer.Repostory
         }
 
 
-
-        //public List<Gonderiler> getAllList()
-        //{
-        //    var list = IKBlokContex.Set<Gonderiler>()
-        //         .ToList();
-        //    return list;
-        //}
-
         public List<Gonderiler> getAllList()
         {
             return IKBlokContex.Set<Gonderiler>()
@@ -53,15 +45,7 @@ namespace DataAccessLayer.Repostory
             return test1.ToList();
         }
 
-    //    public Gonderiler getWithLastPost()
-    //    {
-    //        var enSonGonderi = IKBlokContex.Gonderis
-    //.Include(g => g.GonderiId) // İlgili Kategori nesnesini dahil et
-    //.OrderByDescending(g => g.GonderiId)
-    //.FirstOrDefault();
-    //        return enSonGonderi;
-    //    }
-
+  
         public void remove(Gonderiler gonderiler)
         {
             IKBlokContex.Remove(gonderiler);

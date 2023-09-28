@@ -10,12 +10,15 @@ namespace EFLayer.Class
     public class Hakkimda
     {
         public int hakkimdaId { get; set; }
+		[DisplayName("Başlık")]
 
-        public string baslik { get; set; }
+		public string baslik { get; set; }
+		[DisplayName("İçerik")]
 
-        public string icerik { get; set; }
+		public string icerik { get; set; }
+		[DisplayName("Resim Linki")]
 
-        public string resimLinki { get; set; }
+		public string resimLinki { get; set; }
 
     }
 }

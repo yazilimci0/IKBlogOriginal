@@ -15,7 +15,6 @@ namespace BusinessLayer.Services
         List<Gonderiler> getAllList();
         List<Gonderiler> getAllListWithKategori();
         Gonderiler getCategoryById(int id);
-        //Gonderiler getWithLastPost();
         List<Gonderiler> SgetGonderiByKategoriId(int id);
 
     }

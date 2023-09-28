@@ -9,31 +9,28 @@ using DataAccess.Context;
 using EFLayer.Class;
 using BusinessLayer.Managment;
 using DataAccessLayer.EntittyFramework;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    [Yetki]
+	[Yetki]
     public class AdminKategorilerController : Controller
     {
 		
 		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
 
-		// GET: AdminKategoriler
 		public async Task<IActionResult> Index()
         {
               return View(kt.getAllList());
         }
 
     
-
-        // GET: AdminKategoriler/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: AdminKategoriler/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -54,7 +51,6 @@ namespace IKBlok.Controllers
 			return View(kt.getCategoryById(id));
 		}
 
-		// POST: AdminKategoriler/Edit/5
 
 		[HttpPost]
         [ValidateAntiForgeryToken]
@@ -71,7 +67,6 @@ namespace IKBlok.Controllers
 
         }
 
-        // GET: AdminKategoriler/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
 			return View(kt.getCategoryById(id));
@@ -79,7 +74,6 @@ namespace IKBlok.Controllers
 		
 		}
 
-        // POST: AdminKategoriler/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Kategories kategories)
@@ -87,8 +81,7 @@ namespace IKBlok.Controllers
 			
 				kt.remove(kategories);
 				return RedirectToAction(nameof(Index));
-			
-			
+						
 		}
 
     }

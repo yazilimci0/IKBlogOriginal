@@ -18,7 +18,6 @@ namespace IKBlok.Controllers
         IletisimManagment il = new IletisimManagment(new EfIletisimRepo());
 		KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
-		// GET: Iletisims
 		public async Task<IActionResult> Index()
         {
 			TempData["kategoriler"] = kt.getAllList();
@@ -28,7 +27,6 @@ namespace IKBlok.Controllers
 
 
 
-		// GET: Iletisims/Details/5
 		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Iletisims == null)
@@ -46,15 +44,12 @@ namespace IKBlok.Controllers
             return View(iletisim);
         }
 
-        // GET: Iletisims/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Iletisims/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IletisimId,AdSoyad,Mail,Telefon")] Iletisim iletisim)
@@ -68,7 +63,6 @@ namespace IKBlok.Controllers
             return View(iletisim);
         }
 
-        // GET: Iletisims/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Iletisims == null)
@@ -84,9 +78,7 @@ namespace IKBlok.Controllers
             return View(iletisim);
         }
 
-        // POST: Iletisims/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IletisimId,AdSoyad,Mail,Telefon")] Iletisim iletisim)
@@ -119,7 +111,6 @@ namespace IKBlok.Controllers
             return View(iletisim);
         }
 
-        // GET: Iletisims/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Iletisims == null)
@@ -137,7 +128,6 @@ namespace IKBlok.Controllers
             return View(iletisim);
         }
 
-        // POST: Iletisims/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -3,6 +3,7 @@ using DataAccess.Context;
 using DataAccessLayer.EntittyFramework;
 using EFLayer.Class;
 using IKBlok.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
