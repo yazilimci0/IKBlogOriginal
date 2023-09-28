@@ -13,15 +13,15 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    [Yetki]
+
+	[Yetki]
     public class AdminGonderilerController : Controller
     {
 
         GonderiManagement gn = new GonderiManagement(new EfGonderiRepo());
         KategoryManagment kt = new KategoryManagment(new EfKategoryRepo());
 
-        // GET: AdminGonderiler
-
+    
         public async Task<IActionResult> Index()
         {
             return View(gn.getAllList());
@@ -36,12 +36,7 @@ namespace IKBlok.Controllers
 
         }
 
-        //public async Task<IActionResult> Edit(int? id)
-        //      {
-        //          return View();
-        //      }
-
-        // GET: AdminGonderiler/Details/5
+  
         public async Task<IActionResult> Details(int? id)
         {
             
@@ -49,16 +44,7 @@ namespace IKBlok.Controllers
             return View();
         }
 
-        // GET: AdminGonderiler/Create
-        //private SelectList Kategoriler
-        //{
-        //    get
-        //    {
-        //        return new SelectList(kt.getAllList(), "kategoriId", "kategoryName");
-
-        //    }
-        //}
-
+     
         public IActionResult Create()
         {
             DateTime mevcutTarih = gn.GetMevcutTarih();
@@ -68,7 +54,7 @@ namespace IKBlok.Controllers
             return View();
         }
 
-        // POST: AdminGonderiler/Create
+
        
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -95,12 +81,10 @@ namespace IKBlok.Controllers
             }
             return View(gonderiler);
 
-            //ViewData["GonderiId"] = new SelectList(_context.Kategories, "kategoriId", "kategoryName", gonderiler.GonderiId);
-            //return View(gonderiler);
 
         }
 
-        // GET: AdminGonderiler/Delete/5
+     
         public async Task<IActionResult> Delete(int id)
         {
             return View(gn.getCategoryById(id));
@@ -109,7 +93,6 @@ namespace IKBlok.Controllers
 
         }
 
-        // POST: AdminGonderiler/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
        

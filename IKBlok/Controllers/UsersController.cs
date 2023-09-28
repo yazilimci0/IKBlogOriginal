@@ -9,13 +9,16 @@ using DataAccess.Context;
 using EFLayer.Class;
 using BusinessLayer.Managment;
 using DataAccessLayer.EntittyFramework;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    public class UsersController : Controller
+
+	[Yetki]
+
+	public class UsersController : Controller
     {
 		UserManagment us = new UserManagment(new EfUserRepo());
-		// GET: Users
 		public async Task<IActionResult> Index()
         {
 			return View(us.getAllList());
@@ -23,7 +26,6 @@ namespace IKBlok.Controllers
 
        
        
-        // GET: Users/Create
         public IActionResult Create()
         {
             return View();
@@ -42,7 +44,6 @@ namespace IKBlok.Controllers
 			return View(user);
 		}
 
-        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
 			return View(us.getCategoryById(id));
@@ -62,13 +63,11 @@ namespace IKBlok.Controllers
 			return View(user);
 		}
 
-        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int id)
         {
 			return View(us.getCategoryById(id));
 		}
 
-        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(User user)

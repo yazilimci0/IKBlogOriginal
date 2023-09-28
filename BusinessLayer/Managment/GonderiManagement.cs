@@ -58,9 +58,6 @@ namespace BusinessLayer.Managment
             GonderiRepo.update(gonderiler);
         }
 
-        //public Gonderiler getWithLastPost()
-        //{
-        //    return GonderiRepo.getWithLastPost();
-        //}
+      
     }
 }

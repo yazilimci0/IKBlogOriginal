@@ -4,14 +4,15 @@ using EFLayer.Class;
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation;
 using FluentValidation.Results;
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace IKBlok.Controllers
 {
-    public class LoginController : Controller
+    [AllowAnonymous]
+	public class LoginController : Controller
     {
-        IKBlokContex iKBlokContex = new IKBlokContex();
+		
+		IKBlokContex iKBlokContex = new IKBlokContex();
 
         public async Task<IActionResult> Index()
         {
@@ -19,9 +20,6 @@ namespace IKBlok.Controllers
         }
 
 
-        // POST: Login1/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         public async Task<IActionResult> Index(User user)
         {
@@ -37,7 +35,7 @@ namespace IKBlok.Controllers
                 if (varmi != null)
                 {
                     HttpContext.Session.SetInt32("roleid",varmi.RoleId);
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Users");
                 }
                 ViewBag.EslesmeHatasi = true;
                 return View();
@@ -59,39 +57,3 @@ namespace IKBlok.Controllers
         }
     }
 }
-//using DataAccess.Context;
-//using EFLayer.Class;
-//using Microsoft.AspNetCore.Mvc;
-
-
-
-//namespace IKBlok.Controllers
-//{
-//    public class LoginController : Controller
-//    {
-//        IKBlokContex iKBlokContex = new IKBlokContex();
-//        public IActionResult Index()
-//        {
-//            return View();
-//        }
-//        [HttpPost]
-//        public IActionResult Index(string KullaniciAdi, string KullaniciSifre)
-//        {
-
-//            var UserCheck = iKBlokContex.User.Where(x => x.UserAdi == KullaniciAdi & x.Password == KullaniciSifre).FirstOrDefault();
-//            if (UserCheck != null)
-//            {
-
-//                return RedirectToAction("Index", "Login");
-
-//            }
-//            else
-//            {
-//                return View();
-//            }
-
-
-//        }
-
-//    }
-//}

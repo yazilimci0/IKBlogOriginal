@@ -19,7 +19,6 @@ namespace IKBlok.Controllers
 
 		HakkimdaManagment hk = new HakkimdaManagment(new EfHakkimdaRepo());
 
-        // GET: Hakkimdas
         public async Task<IActionResult> Index()
         {
 			TempData["kategoriler"] = kt.getAllList();
@@ -27,7 +26,6 @@ namespace IKBlok.Controllers
 
         }
 
-        // GET: Hakkimdas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Hakkimdas == null)
@@ -45,15 +43,12 @@ namespace IKBlok.Controllers
             return View(hakkimda);
         }
 
-        // GET: Hakkimdas/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Hakkimdas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+      
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("hakkimdaId,baslik,icerik,resimLinki")] Hakkimda hakkimda)
@@ -67,7 +62,6 @@ namespace IKBlok.Controllers
             return View(hakkimda);
         }
 
-        // GET: Hakkimdas/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Hakkimdas == null)
@@ -83,9 +77,7 @@ namespace IKBlok.Controllers
             return View(hakkimda);
         }
 
-        // POST: Hakkimdas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("hakkimdaId,baslik,icerik,resimLinki")] Hakkimda hakkimda)
@@ -118,7 +110,6 @@ namespace IKBlok.Controllers
             return View(hakkimda);
         }
 
-        // GET: Hakkimdas/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Hakkimdas == null)
@@ -136,7 +127,6 @@ namespace IKBlok.Controllers
             return View(hakkimda);
         }
 
-        // POST: Hakkimdas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
