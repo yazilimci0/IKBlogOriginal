@@ -96,3 +96,14 @@ body {
     width : 500px;
     min-height: 100vh; /* Sayfanýn yüksekliði kadar uzanacak þekilde ayarlayýn */
 }
+.head {
+    margin-bottom: 10px;
+    width: 400px;
+    height: 40px;
+    color: white;
+    text-align: center;
+    background-color: transparent;
+    border: 2px solid white;
+    cursor: pointer;
+    font-family:
+}
