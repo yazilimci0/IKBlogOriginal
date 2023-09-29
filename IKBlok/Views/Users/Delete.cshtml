@@ -27,6 +27,7 @@
 						<h5 class="card-title">Silmek istediğinize emin misiniz?</h5>
 						<hr />
 						<hr />
+
 						<div>
 							<dl class="row">
 								<dt class="col-sm-2">
@@ -56,9 +57,30 @@
 								<dt class="col-sm-2">
 									@Html.DisplayNameFor(model => model.RoleId)
 								</dt>
-								<dd class="col-sm-10">
-									@Html.DisplayFor(model => model.RoleId)
+								<dd>
+									@{
+										string roleText = string.Empty;
+										switch (Model.RoleId)
+										{
+											case 0:
+												roleText = "Kullanıcı Yetkisi";
+												break;
+											case 1:
+												roleText = "Admin Yetkisi";
+												break;
+											case 2:
+												roleText = "Giriş Yasağı";
+												break;
+											default:
+												roleText = "Bilinmeyen Yetki";
+												break;
+										}
+									}
+									@roleText
 								</dd>
+								@* <dd class="col-sm-10">
+									@Html.DisplayFor(model => model.RoleId)
+								</dd> *@
 							</dl>
 							<form asp-action="Delete">
 								<input type="hidden" asp-for="UserId" />

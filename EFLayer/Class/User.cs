@@ -25,7 +25,7 @@ namespace EFLayer.Class
         [DisplayName("Parola")]
 
         public string? Password { get; set; }
-        [DisplayName("Yetki Id")]
+        [DisplayName("Yetki")]
 
         public int RoleId { get; set; }
     }
