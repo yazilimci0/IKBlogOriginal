@@ -50,8 +50,30 @@
 											@Html.DisplayFor(modelItem => item.Password)
 										</td>
 										<td>
-											@Html.DisplayFor(modelItem => item.RoleId)
+											@{
+												string roleText = string.Empty;
+												switch (item.RoleId)
+												{
+													case 0:
+														roleText = "Kullanıcı Yetkisi";
+														break;
+													case 1:
+														roleText = "Admin Yetkisi";
+														break;
+													case 2:
+														roleText = "Giriş Yasağı";
+														break;
+													default:
+														roleText = "Bilinmeyen Yetki";
+														break;
+												}
+											}
+											@roleText
 										</td>
+										@* <td>
+
+											@Html.DisplayFor(modelItem => item.RoleId)
+										</td> *@
 										<td>
 											<div style="float:right">
 												<a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.UserId">Düzenle</a>

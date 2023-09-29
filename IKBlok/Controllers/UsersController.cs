@@ -41,8 +41,8 @@ namespace IKBlok.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(User user)
         {
-			RegisterValidationRoles us = new RegisterValidationRoles();
-			ValidationResult result = us.Validate(user);
+			AdminUserValidationRoles admin = new AdminUserValidationRoles();
+			ValidationResult result = admin.Validate(user);
 			if (result.IsValid)
 			{
 				db.add(user);
@@ -71,9 +71,9 @@ namespace IKBlok.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(User user)
         {
-			RegisterValidationRoles us = new RegisterValidationRoles();
-			ValidationResult result = us.Validate(user);
-			if (result.IsValid)
+            AdminUserValidationRoles admin = new AdminUserValidationRoles();
+            ValidationResult result = admin.Validate(user);
+            if (result.IsValid)
 			{
 				db.update(user);
 				return RedirectToAction(nameof(Index));
